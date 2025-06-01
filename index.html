@@ -547,7 +547,7 @@
                 return;
             }
 
-            let isValidForSelectedWheel = false; // Mặc định là false cho đến khi xác thực
+            let isValidForSelectedWheel = false; 
             let codeTypeMessage = "";
 
             if (activeWheelType === 'vip') {
@@ -562,8 +562,8 @@
                     showLoginMessage("❌ Mã Code VIP không hợp lệ!", "error");
                     return;
                 }
-            } else { // activeWheelType === 'normal'
-                if (code) { // Nếu có nhập code cho vòng thường
+            } else { 
+                if (code) { 
                     if (validCodes.includes(code)) {
                         isValidForSelectedWheel = true;
                         codeTypeMessage = "thường";
@@ -574,12 +574,11 @@
                         showLoginMessage("❌ Mã Code không hợp lệ!", "error");
                         return;
                     }
-                } else { // Không nhập code cho vòng thường
-                    isValidForSelectedWheel = true; // Cho phép quay vòng thường không cần code
+                } else { 
+                    isValidForSelectedWheel = true; 
                 }
             }
 
-            // Kiểm tra mã đã sử dụng chưa (áp dụng cho cả 2 loại mã nếu code được cung cấp)
             if (code && isValidForSelectedWheel && usedCodes.includes(code)) {
                 showLoginMessage(`❌ Mã Code ${codeTypeMessage} này đã được sử dụng!`, "error");
                 return;
@@ -587,6 +586,8 @@
             
             if (code && isValidForSelectedWheel) { 
                 usedCodes.push(code); 
+                localStorage.setItem('usedWheelCodes_LongBao', JSON.stringify(usedCodes));
+                console.log("Đã cập nhật usedCodes vào localStorage:", usedCodes);
             }
 
             currentUser = username;
@@ -649,7 +650,7 @@
             } else {
                  let random = Math.random() * totalWeight;
                 for (let i = 0; i < currentPrizes.length; i++) {
-                    if (currentPrizes [i].weight <= 0 && totalWeight > 0) continue; // Bỏ qua nếu weight = 0 và có giải khác có weight
+                    if (currentPrizes [i].weight <= 0 && totalWeight > 0) continue; 
                     if (random < currentPrizes [i].weight) {
                         selectedIndex = i;
                         break;
@@ -658,7 +659,7 @@
                 }
             }
             
-            if (selectedIndex === -1) { // Fallback cuối cùng
+            if (selectedIndex === -1) { 
                  console.warn("Không chọn được giải theo weight ngay cả khi có totalWeight > 0, chọn ngẫu nhiên.");
                  selectedIndex = Math.floor(Math.random() * currentPrizes.length); 
             }
@@ -942,6 +943,15 @@
 
 
         window.addEventListener('load', () => {
+            const storedUsedCodes = localStorage.getItem('usedWheelCodes_LongBao');
+            if (storedUsedCodes) {
+                usedCodes = JSON.parse(storedUsedCodes);
+                console.log("Đã tải usedCodes từ localStorage:", usedCodes);
+            } else {
+                usedCodes = []; 
+                console.log("Không có usedCodes trong localStorage, khởi tạo mảng rỗng.");
+            }
+
             const primaryColorValue = getCssVariable('--primary-color');
             if (primaryColorValue && primaryColorValue.startsWith('#')) {
                 const r = parseInt(primaryColorValue.slice(1, 3), 16);
