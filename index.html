@@ -350,15 +350,14 @@
             { text: "🏍️ XE SH 350I", color: "#FF0000", weight: 0 },   
             { text: "💰 188K", color: "#FF6B6B", weight: 0 },      
             { text: "💎 8888K", color: "#8E44AD", weight: 0 },  
-            { text: "💵 188K", color: "#E74C3C", weight: 0 }, 
-            { text: "💰 388K", color: "#F39C12", weight: 0 },   
+            { text: "💵 88K", color: "#E74C3C", weight: 0 }, // Updated prize
+            { text: "💰 25 XU TOOL SLOT", color: "#F39C12", weight: 70 }, // Updated prize and weight
             { text: "💸 588K", color: "#E67E22", weight: 0 },   
-            { text: "💴 88K", color: "#27AE60", weight: 0 },       
-            { text: "💳 68K", color: "#2ECC71", weight: 0 },
+            { text: "💴 78K", color: "#27AE60", weight: 0 }, // Updated prize      
+            { text: "💳 100 XU TOOL VIP", color: "#2ECC71", weight: 0 }, // Added prize
+            { text: "💳 68K", color: "#A7D397", weight: 0 },
             { text: "💎 888K", color: "#9B59B6", weight: 0 },
-            { text: "💰 8K", color: "#A7D397", weight: 25 },      
-            { text: "💰 18K", color: "#75A2D9", weight: 25 },     
-            { text: "🎁 KHUYẾN KHÍCH", color: "#3498DB", weight: 50 } 
+            { text: "🎁 CHÚC BẠN MAY MẮN LẦN SAU", color: "#3498DB", weight: 30 } // Updated prize and weight
         ];
 
         const prizes_vip = [
@@ -708,7 +707,7 @@
                 prize.text = "Giải không xác định"; 
             }
 
-            if (prize.text.includes('KHUYẾN KHÍCH') || prize.text.toLowerCase().includes('lần sau') || prize.text.toLowerCase().includes('may mắn sẽ đến')) { 
+            if (prize.text.includes('CHÚC BẠN MAY MẮN LẦN SAU') || prize.text.toLowerCase().includes('lần sau') || prize.text.toLowerCase().includes('may mắn sẽ đến')) { // Updated text
                 popupTitle.textContent = '😊 CHÚC BẠN MAY MẮN LẦN SAU!';
                 popupPrize.textContent = prize.text; 
                 popupMessage.textContent = 'Đừng buồn! Vẫn còn nhiều cơ hội phía trước. Hãy thử lại nhé!';
