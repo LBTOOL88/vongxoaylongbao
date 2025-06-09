@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🎰 VÒNG XOAY LONG BẢO - Rinh Ngay Quà Khủng 🎰</title>
-    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=pnG_-fixdD3lsbOUjS7nxehlgVIQJFva2dfaiRcKrBWMk4rloB0gp0Tbx3E7rTb5a0Zmc3gjx_Qz_s_Kbsz-Lr-aqYGogs6ikVL7ub2NuuQ2bdS_Sjb7h9ejHebCVBCjzEkO2qJpOSawAaGOzOK7NUYRVCwW8z_HgtaUXjyLhRwBJO2k-ifB9yhqeQOp1Cj6z6Z5lu2OXlVaJLaahWNn14MCL3JR5nDMiEMu2U_50s9xNtmp3FSHUYL-HQ710WDgCL-nvx_BS5mxNCZdMaM2TkM0hnkqU8CliLTp6NNrpBw" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9jb250cmlidXRpb24udXNlcmNvbnRlbnQuZ29vZ2xlLmNvbS9kb3dubG9hZD9jPUNneGlZWEprWDNOMGIzSmhaMlVTVHhJTWNtVnhkV1Z6ZEY5a1lYUmhHajhLTURBd01EWXpObVUzWlRKak9ERTJNemd3TW1Fd1ptWXpNMkZsTW1VMk5UUTRNbVV3TWpNeVlUVmlObUV4Wm1Fek1CSUxFZ2NRMllMeDZkVVBHQUUmZmlsZW5hbWUmb3BpPTEwMzEzNTA1MA"/><style>
+    <style>
         /* --- GLOBAL STYLES --- */
         :root {
             --primary-color: #FFD700; /* Vàng gold */
-            --secondary-color: #2c3e50; 
+            --secondary-color: #2c3e50;
             --accent-color: #FFA500; /* Vàng cam */
             --vip-gold-color: #DAA520; /* Vàng đậm cho VIP */
             --vip-dark-bg: #121212; /* Nền tối cho VIP */
@@ -42,9 +42,9 @@
             flex-direction: column;
             align-items: center;
             color: var(--text-color-light);
-            overflow-x: hidden; 
+            overflow-x: hidden;
             padding: 20px 10px;
-            position: relative; 
+            position: relative;
         }
 
         @keyframes gradientShiftBody {
@@ -59,22 +59,22 @@
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1; 
+            z-index: -1;
             overflow: hidden;
-            pointer-events: none; 
+            pointer-events: none;
         }
 
         .money-particle {
             position: absolute;
-            width: 15px; 
+            width: 15px;
             height: 30px;
             background-color: var(--money-green);
             border: 1px solid var(--money-green-dark);
             border-radius: 3px;
-            opacity: 0.9; 
+            opacity: 0.9;
             animation-name: fallAndSway;
             animation-timing-function: linear;
-            animation-fill-mode: forwards; 
+            animation-fill-mode: forwards;
         }
 
         @keyframes fallAndSway {
@@ -90,8 +90,8 @@
             background-color: rgba(10, 20, 40, 0.97); backdrop-filter: blur(5px);
             z-index: 2000; display: flex; flex-direction: column; align-items: center;
             justify-content: center; text-align: center; padding: 20px;
-            opacity: 1; visibility: visible; pointer-events: auto; 
-            transition: opacity 0.7s ease-out, visibility 0s linear 0.7s; 
+            opacity: 1; visibility: visible; pointer-events: auto;
+            transition: opacity 0.7s ease-out, visibility 0s linear 0.7s;
         }
         .intro-splash.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
         .intro-logo { height: 70px; margin-bottom: 25px; border-radius: 50%; box-shadow: 0 0 20px var(--primary-color), 0 0 30px var(--accent-color); }
@@ -251,7 +251,7 @@
         <h1 class="intro-splash-title">VÒNG XOAY ĐỈNH CAO<br>RINH NGAY SH!</h1>
         <img src="https://i.ibb.co/6c8BLr2q/Honda-SH350i2025-Vn-E15jpg-1730857784.webp" alt="Giải Đặc Biệt SH 350i" class="intro-splash-image">
         <p class="intro-splash-subtitle">Giải Thưởng Siêu Hot: <strong>XE SH 350i</strong> và Ngàn Quà Giá Trị!</p>
-        <button class="intro-splash-button" onclick="startExperience()">Tham Gia Ngay!</button>
+        <button class="intro-splash-button" id="startExperienceBtn">Tham Gia Ngay!</button>
     </div>
     
     <header class="page-header">
@@ -263,8 +263,8 @@
 
     <div class="main-content">
         <div class="wheel-selection-area">
-            <button id="btnNormalWheel" class="wheel-select-btn active" onclick="selectWheelType('normal')">🎡 Vòng Quay Thường</button>
-            <button id="btnVipWheel" class="wheel-select-btn" onclick="selectWheelType('vip')">🌟 Vòng Quay VIP</button>
+            <button id="btnNormalWheel" class="wheel-select-btn active">🎡 Vòng Quay Thường</button>
+            <button id="btnVipWheel" class="wheel-select-btn">🌟 Vòng Quay VIP</button>
         </div>
 
         <section class="casino-header">
@@ -291,7 +291,7 @@
                 <label for="code">🎟️ Mã code (Nếu có):</label>
                 <input type="text" id="code" placeholder="Nhập mã code hợp lệ">
             </div>
-            <button class="validate-btn" onclick="validateCode()">🚀 XÁC NHẬN THAM GIA</button>
+            <button class="validate-btn" id="validateBtn">🚀 XÁC NHẬN THAM GIA</button>
             <div id="loginMessage" class="status-message" style="display: none;"></div>
         </section>
 
@@ -302,7 +302,7 @@
                 <div class="center-circle"></div>
             </div>
 
-            <button class="spin-button" id="spinBtn" onclick="spinWheel()">
+            <button class="spin-button" id="spinBtn">
                 🎲 QUAY NGAY 🎲
             </button>
 
@@ -338,7 +338,7 @@
                 <h2 class="popup-title" id="popupTitle">🎉 CHÚC MỪNG! 🎉</h2>
                 <div class="popup-prize" id="popupPrize"></div>
                 <div class="popup-message" id="popupMessage"></div>
-                <button class="close-popup" onclick="closePopup()">Đóng</button>
+                <button class="close-popup" id="closePopupBtn">Đóng</button>
             </div>
         </div>
 
@@ -346,644 +346,408 @@
     </div>
 
     <script>
-        const prizes_normal = [ 
-            { text: "🏍️ XE SH 350I", color: "#FF0000", weight: 0 },   
-            { text: "💰 188K", color: "#FF6B6B", weight: 0 },      
-            { text: "💎 8888K", color: "#8E44AD", weight: 0 },  
-            { text: "💵 88K", color: "#E74C3C", weight: 0 }, // Updated prize
-            { text: "💰 25 XU TOOL SLOT", color: "#F39C12", weight: 70 }, // Updated prize and weight
-            { text: "💸 588K", color: "#E67E22", weight: 0 },   
-            { text: "💴 78K", color: "#27AE60", weight: 0 }, // Updated prize      
-            { text: "💳 100 XU TOOL VIP", color: "#2ECC71", weight: 0 }, // Added prize
-            { text: "💳 68K", color: "#A7D397", weight: 0 },
-            { text: "💎 888K", color: "#9B59B6", weight: 0 },
-            { text: "🎁 CHÚC BẠN MAY MẮN LẦN SAU", color: "#3498DB", weight: 30 } // Updated prize and weight
-        ];
+        document.addEventListener('DOMContentLoaded', () => {
+            const prizes_normal = [ 
+                { text: "🏍️ XE SH 350I", color: "#FF0000", weight: 1 },   
+                { text: "💰 188K", color: "#FF6B6B", weight: 5 },      
+                { text: "💎 8888K", color: "#8E44AD", weight: 2 },  
+                { text: "💵 88K", color: "#E74C3C", weight: 10 }, 
+                { text: "💰 25 XU TOOL SLOT", color: "#F39C12", weight: 25 }, 
+                { text: "💸 588K", color: "#E67E22", weight: 3 },   
+                { text: "💴 78K", color: "#27AE60", weight: 12 },      
+                { text: "💳 100 XU TOOL VIP", color: "#2ECC71", weight: 5 }, 
+                { text: "💳 68K", color: "#A7D397", weight: 15 },
+                { text: "💎 888K", color: "#9B59B6", weight: 2 },
+                { text: "🎁 CHÚC BẠN MAY MẮN LẦN SAU", color: "#3498DB", weight: 20 }
+            ];
 
-        const prizes_vip = [
-            { text: "🌟 VUI VẺ CÙNG HOT TIKTOKER", color: "#FF69B4", weight: 0 }, 
-            { text: "💻 MACBOOK PRO M4", color: "#C0C0C0", weight: 0 },        
-            { text: "📱 IPHONE 16 PROMAX", color: "#B8860B", weight: 0 },     
-            { text: "✈️ DU LỊCH NƯỚC NGOÀI", color: "#87CEEB", weight: 0 }, 
-            { text: "💰 1 BITCOIN", color: "#FFD700", weight: 0 },             
-            { text: "✨ MAY MẮN SẼ ĐẾN VIP", color: "#483D8B", weight: 1 } 
-        ];
-        
-        let currentPrizes = prizes_normal;
-        let activeWheelButton = document.getElementById('btnNormalWheel');
-        let activeWheelType = 'normal';
+            const prizes_vip = [
+                { text: "🌟 VUI VẺ CÙNG HOT TIKTOKER", color: "#FF69B4", weight: 5 }, 
+                { text: "💻 MACBOOK PRO M4", color: "#C0C0C0", weight: 3 },        
+                { text: "📱 IPHONE 16 PROMAX", color: "#B8860B", weight: 4 },     
+                { text: "✈️ DU LỊCH NƯỚC NGOÀI", color: "#87CEEB", weight: 5 }, 
+                { text: "💰 1 BITCOIN", color: "#FFD700", weight: 1 },             
+                { text: "✨ MAY MẮN SẼ ĐẾN VIP", color: "#483D8B", weight: 10 } 
+            ];
+            
+            // ... (rest of the script)
+            let currentPrizes = prizes_normal;
+            let activeWheelType = 'normal';
 
-        // MÃ CHO VÒNG QUAY THƯỜNG (50 MÃ NGẪU NHIÊN - 5 CHỮ SỐ KHÁC NHAU)
-        const validCodes = [
-            "LB73915", "LB28406", "LB91734", "LB50281", "LB64739",
-            "LB19825", "LB82504", "LB37196", "LB05482", "LB46917",
-            "LB71539", "LB20864", "LB95318", "LB58270", "LB61943",
-            "LB14075", "LB80329", "LB36751", "LB09246", "LB42708",
-            "LB78162", "LB25093", "LB90471", "LB53824", "LB67150",
-            "LB12986", "LB86357", "LB31024", "LB04791", "LB49158",
-            "LB75032", "LB29486", "LB93850", "LB57123", "LB60497",
-            "LB18264", "LB83719", "LB30582", "LB06945", "LB41207",
-            "LB70851", "LB24193", "LB97530", "LB51862", "LB65294",
-            "LB10627", "LB85091", "LB39468", "LB02735", "LB48106"
-        ];
+            const validCodes = [
+                "LB73915", "LB28406", "LB91734", "LB50281", "LB64739",
+                "LB19825", "LB82504", "LB37196", "LB05482", "LB46917",
+                "LB71539", "LB20864", "LB95318", "LB58270", "LB61943",
+                "LB14075", "LB80329", "LB36751", "LB09246", "LB42708",
+                "LB78162", "LB25093", "LB90471", "LB53824", "LB67150",
+                "LB12986", "LB86357", "LB31024", "LB04791", "LB49158",
+                "LB75032", "LB29486", "LB93850", "LB57123", "LB60497",
+                "LB18264", "LB83719", "LB30582", "LB06945", "LB41207",
+                "LB70851", "LB24193", "LB97530", "LB51862", "LB65294",
+                "LB10627", "LB85091", "LB39468", "LB02735", "LB48106"
+            ];
 
-        // MÃ CHO VÒNG QUAY VIP (10 MÃ NGẪU NHIÊN - 5 CHỮ SỐ KHÁC NHAU)
-        const validVipCodes = [
-            "VIP75391", "VIP20846", "VIP91374", "VIP58021", "VIP63749",
-            "VIP19285", "VIP82054", "VIP37916", "VIP05842", "VIP46170"
-        ];
-        
-        let usedCodes = []; 
-        let isSpinning = false;
-        let currentUser = "";
-        let hasSpun = false; 
+            const validVipCodes = [
+                "VIP75391", "VIP20846", "VIP91374", "VIP58021", "VIP63749",
+                "VIP19285", "VIP82054", "VIP37916", "VIP05842", "VIP46170"
+            ];
+            
+            let usedCodes = []; 
+            let isSpinning = false;
+            let currentUser = "";
+            let hasSpun = false; 
 
-        function startExperience() {
-            const introSplash = document.getElementById('introSplash');
-            if (introSplash) {
-                introSplash.classList.add('hidden');
-                setTimeout(() => {
-                    introSplash.style.zIndex = -1; 
-                }, 700); 
-            }
-        }
-        
-        function selectWheelType(type) {
-            const btnNormal = document.getElementById('btnNormalWheel');
-            const btnVip = document.getElementById('btnVipWheel');
-            const wheelElement = document.getElementById('wheel');
+            // Element Getters
+            const getEl = (id) => document.getElementById(id);
+            
+            const introSplash = getEl('introSplash');
+            const startBtn = getEl('startExperienceBtn');
+            const btnNormalWheel = getEl('btnNormalWheel');
+            const btnVipWheel = getEl('btnVipWheel');
+            const wheelElement = getEl('wheel');
             const pointerElement = document.querySelector('.pointer');
             const centerCircleElement = document.querySelector('.center-circle');
+            const loginSection = getEl('loginSection');
+            const gameArea = getEl('gameArea');
+            const usernameInput = getEl('username');
+            const codeInput = getEl('code');
+            const validateBtn = getEl('validateBtn');
+            const loginMessage = getEl('loginMessage');
+            const spinBtn = getEl('spinBtn');
+            const statusMessage = getEl('statusMessage');
+            const resultPopup = getEl('resultPopup');
+            const popupTitle = getEl('popupTitle');
+            const popupPrize = getEl('popupPrize');
+            const popupMessage = getEl('popupMessage');
+            const closePopupBtn = getEl('closePopupBtn');
+            const fireworksContainer = getEl('fireworks');
+            const leaderboardBody = getEl('leaderboardBody');
+            const fallingMoneyContainer = getEl('fallingMoneyContainer');
 
-            if (activeWheelButton) {
-                activeWheelButton.classList.remove('active');
+            function startExperience() {
+                if (introSplash) {
+                    introSplash.classList.add('hidden');
+                    setTimeout(() => { introSplash.style.zIndex = -1; }, 700); 
+                }
             }
-
-            if (type === 'vip') {
-                currentPrizes = prizes_vip;
-                activeWheelButton = btnVip;
-                activeWheelType = 'vip';
-                if(wheelElement) wheelElement.classList.add('wheel-vip-theme');
-                if(pointerElement) pointerElement.classList.add('pointer-vip-theme');
-                if(centerCircleElement) centerCircleElement.classList.add('center-circle-vip-theme');
-            } else { 
-                currentPrizes = prizes_normal;
-                activeWheelButton = btnNormal;
-                activeWheelType = 'normal';
-                if(wheelElement) wheelElement.classList.remove('wheel-vip-theme');
-                if(pointerElement) pointerElement.classList.remove('pointer-vip-theme');
-                if(centerCircleElement) centerCircleElement.classList.remove('center-circle-vip-theme');
-            }
-            if (activeWheelButton) {
-                 activeWheelButton.classList.add('active');
-            }
-            createWheel(); 
             
-            hasSpun = false; 
-            const spinBtn = document.getElementById('spinBtn');
-            const statusMessage = document.getElementById('statusMessage');
-            if(spinBtn) {
+            function selectWheelType(type) {
+                btnNormalWheel.classList.remove('active');
+                btnVipWheel.classList.remove('active');
+                wheelElement.classList.remove('wheel-vip-theme');
+                pointerElement.classList.remove('pointer-vip-theme');
+                centerCircleElement.classList.remove('center-circle-vip-theme');
+
+                if (type === 'vip') {
+                    currentPrizes = prizes_vip;
+                    btnVipWheel.classList.add('active');
+                    activeWheelType = 'vip';
+                    wheelElement.classList.add('wheel-vip-theme');
+                    pointerElement.classList.add('pointer-vip-theme');
+                    centerCircleElement.classList.add('center-circle-vip-theme');
+                } else { 
+                    currentPrizes = prizes_normal;
+                    btnNormalWheel.classList.add('active');
+                    activeWheelType = 'normal';
+                }
+                createWheel();
+                
+                hasSpun = false; 
                 spinBtn.disabled = false;
                 spinBtn.textContent = '🎲 QUAY NGAY 🎲';
-            }
-            if(statusMessage) statusMessage.textContent = '🍀 Chúc bạn may mắn! Nhấn nút để quay bánh xe! 🍀';
-        }
-
-        function createWheel() {
-            const wheel = document.getElementById('wheel');
-            if (!wheel) { console.error("Không tìm thấy element #wheel"); return; }
-            wheel.innerHTML = ''; 
-            const numPrizes = currentPrizes.length;
-            if (numPrizes === 0) return;
-
-            const sectionAngle = 360 / numPrizes;
-            const gap = 0.2; 
-            const angleOffsetForPointer = -90 - (sectionAngle / 2);
-
-            currentPrizes.forEach((prize, i) => {
-                const section = document.createElement('div');
-                section.className = 'wheel-section';
-                let baseColor = prize.color;
-                let adjustedColor = adjustColorForGradient(baseColor, -25); 
-                section.style.background = `linear-gradient(135deg, ${baseColor}, ${adjustedColor})`;
-
-                const startAngleRad = (i * sectionAngle + angleOffsetForPointer) * Math.PI / 180;
-                const endAngleRad = ((i + 1) * sectionAngle - gap + angleOffsetForPointer) * Math.PI / 180;
-
-                const p_center_x = 50;
-                const p_center_y = 50;
-                const p1_x = p_center_x + 50 * Math.cos(startAngleRad);
-                const p1_y = p_center_y + 50 * Math.sin(startAngleRad);
-                const p2_x = p_center_x + 50 * Math.cos(endAngleRad);
-                const p2_y = p_center_y + 50 * Math.sin(endAngleRad);
-
-                section.style.clipPath = `polygon(${p_center_x}% ${p_center_y}%, ${p1_x}% ${p1_y}%, ${p2_x}% ${p2_y}%)`;
-                
-                const span = document.createElement('span');
-                span.textContent = prize.text;
-                
-                let fontSize = '11px'; 
-                if (numPrizes <= 8) { 
-                    if (prize.text.length <= 6) fontSize = '13px'; 
-                    else if (prize.text.length <= 10) fontSize = '11px';
-                    else if (prize.text.length <= 15) fontSize = '9px'; 
-                    else fontSize = '8px';
-                } else { 
-                    if (prize.text.length <= 5) fontSize = '11px';
-                    else if (prize.text.length <= 8) fontSize = '10px';
-                    else if (prize.text.length <= 12) fontSize = '8px';
-                    else fontSize = '7px'; 
-                }
-                span.style.fontSize = fontSize;
-                
-                const textAngleDeg = i * sectionAngle + (sectionAngle / 2) + angleOffsetForPointer;
-                const textAngleRad = textAngleDeg * Math.PI / 180;
-                
-                const textRadius = numPrizes > 10 ? 32 : 34; 
-                const textX = 50 + textRadius * Math.cos(textAngleRad);
-                const textY = 50 + textRadius * Math.sin(textAngleRad);
-                
-                span.style.left = `${textX}%`;
-                span.style.top = `${textY}%`;
-                
-                let visualTextAngle = textAngleDeg + 90; 
-                if (textAngleDeg > -90 && textAngleDeg < 90) { 
-                     visualTextAngle += 180;
-                }
-                span.style.transform = `translate(-50%, -50%) rotate(${visualTextAngle}deg)`;
-                
-                section.appendChild(span);
-                wheel.appendChild(section);
-            });
-        }
-        
-        function adjustColorForGradient(color, amount) {
-            const usePound = color.startsWith("#");
-            if (usePound) color = color.slice(1);
-            const num = parseInt(color, 16);
-            if (isNaN(num)) return '#CCCCCC'; 
-            let r = (num >> 16) + amount;
-            if (r > 255) r = 255; else if (r < 0) r = 0;
-            let g = ((num >> 8) & 0x00FF) + amount;
-            if (g > 255) g = 255; else if (g < 0) g = 0;
-            let b = (num & 0x0000FF) + amount;
-            if (b > 255) b = 255; else if (b < 0) b = 0;
-            return (usePound ? "#" : "") + ((r << 16) | (g << 8) | b).toString(16).padStart(6, '0');
-        }
-        
-        function validateCode() {
-            const usernameInput = document.getElementById('username');
-            const codeInput = document.getElementById('code');
-            const loginMessage = document.getElementById('loginMessage');
-            
-            if (!usernameInput || !codeInput || !loginMessage) return;
-
-            const username = usernameInput.value.trim();
-            const code = codeInput.value.trim();
-            
-            if (!username) {
-                showLoginMessage("❌ Vui lòng nhập tài khoản!", "error");
-                return;
+                statusMessage.textContent = '🍀 Chúc bạn may mắn! Nhấn nút để quay bánh xe! 🍀';
             }
 
-            let isValidForSelectedWheel = false; 
-            let codeTypeMessage = "";
+            function createWheel() {
+                if (!wheelElement) return;
+                wheelElement.innerHTML = ''; 
+                const numPrizes = currentPrizes.length;
+                if (numPrizes === 0) return;
 
-            if (activeWheelType === 'vip') {
-                if (!code) {
-                    showLoginMessage("❌ Vui lòng nhập Mã Code VIP để quay vòng này!", "error");
+                const sectionAngle = 360 / numPrizes;
+                const gap = 0.2; 
+                const angleOffsetForPointer = -90 - (sectionAngle / 2);
+
+                currentPrizes.forEach((prize, i) => {
+                    const section = document.createElement('div');
+                    section.className = 'wheel-section';
+                    let adjustedColor = adjustColorForGradient(prize.color, -25); 
+                    section.style.background = `linear-gradient(135deg, ${prize.color}, ${adjustedColor})`;
+
+                    const startAngleRad = (i * sectionAngle + angleOffsetForPointer) * Math.PI / 180;
+                    const endAngleRad = ((i + 1) * sectionAngle - gap + angleOffsetForPointer) * Math.PI / 180;
+
+                    const p_center_x = 50; const p_center_y = 50;
+                    const p1_x = p_center_x + 50 * Math.cos(startAngleRad);
+                    const p1_y = p_center_y + 50 * Math.sin(startAngleRad);
+                    const p2_x = p_center_x + 50 * Math.cos(endAngleRad);
+                    const p2_y = p_center_y + 50 * Math.sin(endAngleRad);
+
+                    section.style.clipPath = `polygon(${p_center_x}% ${p_center_y}%, ${p1_x}% ${p1_y}%, ${p2_x}% ${p2_y}%)`;
+                    
+                    const span = document.createElement('span');
+                    span.textContent = prize.text;
+                    
+                    let fontSize = '11px'; 
+                    if (numPrizes <= 8) { 
+                        if (prize.text.length <= 10) fontSize = '11px'; else fontSize = '9px';
+                    } else { 
+                        if (prize.text.length <= 8) fontSize = '10px'; else fontSize = '8px';
+                    }
+                    span.style.fontSize = fontSize;
+                    
+                    const textAngleDeg = i * sectionAngle + (sectionAngle / 2) + angleOffsetForPointer;
+                    const textAngleRad = textAngleDeg * Math.PI / 180;
+                    
+                    const textRadius = numPrizes > 10 ? 32 : 34; 
+                    const textX = 50 + textRadius * Math.cos(textAngleRad);
+                    const textY = 50 + textRadius * Math.sin(textAngleRad);
+                    
+                    span.style.left = `${textX}%`;
+                    span.style.top = `${textY}%`;
+                    
+                    let visualTextAngle = textAngleDeg + 90; 
+                    if (textAngleDeg > -90 && textAngleDeg < 90) { visualTextAngle += 180; }
+                    span.style.transform = `translate(-50%, -50%) rotate(${visualTextAngle}deg)`;
+                    
+                    section.appendChild(span);
+                    wheelElement.appendChild(section);
+                });
+            }
+            
+            function adjustColorForGradient(color, amount) {
+                const usePound = color.startsWith("#");
+                if (usePound) color = color.slice(1);
+                const num = parseInt(color, 16);
+                if (isNaN(num)) return '#CCCCCC'; 
+                let r = (num >> 16) + amount; if (r > 255) r = 255; else if (r < 0) r = 0;
+                let g = ((num >> 8) & 0x00FF) + amount; if (g > 255) g = 255; else if (g < 0) g = 0;
+                let b = (num & 0x0000FF) + amount; if (b > 255) b = 255; else if (b < 0) b = 0;
+                return (usePound ? "#" : "") + ((r << 16) | (g << 8) | b).toString(16).padStart(6, '0');
+            }
+            
+            function validateCode() {
+                const username = usernameInput.value.trim();
+                const code = codeInput.value.trim().toUpperCase();
+                
+                if (!username) {
+                    showLoginMessage("❌ Vui lòng nhập tài khoản!", "error");
                     return;
                 }
-                if (validVipCodes.includes(code)) {
-                    isValidForSelectedWheel = true;
-                    codeTypeMessage = "VIP";
-                } else {
-                    showLoginMessage("❌ Mã Code VIP không hợp lệ!", "error");
-                    return;
-                }
-            } else { 
-                if (code) { 
-                    if (validCodes.includes(code)) {
-                        isValidForSelectedWheel = true;
-                        codeTypeMessage = "thường";
-                    } else if (validVipCodes.includes(code)) {
-                        showLoginMessage("❌ Mã Code này dành cho Vòng Quay VIP. Vui lòng chọn Vòng Quay VIP!", "error");
+
+                let isValid = false;
+                if (activeWheelType === 'vip') {
+                    if (!code) {
+                        showLoginMessage("❌ Vui lòng nhập Mã Code VIP!", "error");
                         return;
+                    }
+                    if (validVipCodes.includes(code)) {
+                        isValid = true;
                     } else {
-                        showLoginMessage("❌ Mã Code không hợp lệ!", "error");
+                        showLoginMessage("❌ Mã Code VIP không hợp lệ!", "error");
                         return;
                     }
                 } else { 
-                    isValidForSelectedWheel = true; 
+                    if (code && !validCodes.includes(code)) {
+                         if (validVipCodes.includes(code)) {
+                            showLoginMessage("❌ Mã này dành cho Vòng Quay VIP. Vui lòng chọn đúng vòng quay!", "error");
+                         } else {
+                            showLoginMessage("❌ Mã Code không hợp lệ!", "error");
+                         }
+                         return;
+                    }
+                    isValid = true;
                 }
-            }
 
-            if (code && isValidForSelectedWheel && usedCodes.includes(code)) {
-                showLoginMessage(`❌ Mã Code ${codeTypeMessage} này đã được sử dụng!`, "error");
-                return;
-            }
-            
-            if (code && isValidForSelectedWheel) { 
-                usedCodes.push(code); 
+                if (code && usedCodes.includes(code)) {
+                    showLoginMessage(`❌ Mã Code này đã được sử dụng!`, "error");
+                    return;
+                }
+                
+                if (code) usedCodes.push(code);
                 localStorage.setItem('usedWheelCodes_LongBao', JSON.stringify(usedCodes));
-                console.log("Đã cập nhật usedCodes vào localStorage:", usedCodes);
+                
+                currentUser = username;
+                hasSpun = false; 
+                showLoginMessage("✅ Xác nhận thành công! Chào mừng " + username, "success");
+                
+                setTimeout(() => {
+                    loginSection.style.display = 'none';
+                    gameArea.classList.add('active');
+                    createWheel(); 
+                }, 1500);
             }
-
-            currentUser = username;
-            hasSpun = false; 
-            showLoginMessage("✅ Xác nhận thành công! Chào mừng " + username, "success");
             
-            setTimeout(() => {
-                const loginSection = document.getElementById('loginSection');
-                if(loginSection) loginSection.style.display = 'none';
-                const gameArea = document.getElementById('gameArea');
-                if (gameArea) gameArea.classList.add('active');
-                createWheel(); 
-            }, 1500);
-        }
-        
-        function showLoginMessage(message, type) {
-            const loginMessage = document.getElementById('loginMessage');
-            if (!loginMessage) return;
-            loginMessage.textContent = message;
-            loginMessage.style.display = 'block';
-            if (type === 'error') {
-                loginMessage.classList.remove('success'); 
-                loginMessage.classList.add('error'); 
-            } else { 
-                loginMessage.classList.remove('error'); 
-                loginMessage.classList.add('success'); 
+            function showLoginMessage(message, type) {
+                loginMessage.textContent = message;
+                loginMessage.style.display = 'block';
+                loginMessage.className = `status-message ${type}`;
             }
-        }
-        
-        function spinWheel() {
-            const statusMessage = document.getElementById('statusMessage');
-            const spinBtn = document.getElementById('spinBtn');
-            const wheel = document.getElementById('wheel');
-
-            if (!statusMessage || !spinBtn || !wheel) {
-                console.error("Một hoặc nhiều DOM elements không tìm thấy trong spinWheel.");
-                return; 
-            }
-
-            if (isSpinning) return;
             
-            if (hasSpun) {
-                statusMessage.textContent = '❌ Bạn đã sử dụng lượt quay này!';
+            function spinWheel() {
+                if (isSpinning || hasSpun) return;
+                
+                isSpinning = true;
                 spinBtn.disabled = true;
-                return;
-            }
-            
-            isSpinning = true;
-            
-            spinBtn.disabled = true;
-            spinBtn.textContent = '🔄 ĐANG QUAY...';
-            statusMessage.textContent = '🌪️ Bánh xe đang xoay tít... Chúc bạn may mắn! 🙏';
-            
-            let totalWeight = currentPrizes.reduce((sum, prize) => sum + prize.weight, 0);
-            let selectedIndex = -1;
+                spinBtn.textContent = '🔄 ĐANG QUAY...';
+                statusMessage.textContent = '🌪️ Bánh xe đang xoay tít... Chúc bạn may mắn! 🙏';
+                
+                let totalWeight = currentPrizes.reduce((sum, prize) => sum + prize.weight, 0);
+                let random = Math.random() * totalWeight;
+                let selectedIndex = -1;
 
-            if (totalWeight === 0) { 
-                console.warn("Tất cả weight của giải thưởng là 0. Sẽ chọn ngẫu nhiên 1 giải.");
-                selectedIndex = Math.floor(Math.random() * currentPrizes.length);
-            } else {
-                 let random = Math.random() * totalWeight;
                 for (let i = 0; i < currentPrizes.length; i++) {
-                    if (currentPrizes [i].weight <= 0 && totalWeight > 0) continue; 
-                    if (random < currentPrizes [i].weight) {
+                    random -= currentPrizes[i].weight;
+                    if (random < 0) {
                         selectedIndex = i;
                         break;
                     }
-                    random -= currentPrizes [i].weight;
                 }
-            }
-            
-            if (selectedIndex === -1) { 
-                 console.warn("Không chọn được giải theo weight ngay cả khi có totalWeight > 0, chọn ngẫu nhiên.");
-                 selectedIndex = Math.floor(Math.random() * currentPrizes.length); 
-            }
-            
-            const selectedPrize = currentPrizes [selectedIndex];
-            console.log("Giải thưởng đã chọn (trước khi quay):", selectedPrize); 
-
-            const sectionAngle = 360 / currentPrizes.length;
-            const targetRotationOffset = -(selectedIndex * sectionAngle + sectionAngle / 2);
-
-            const minSpins = 7;
-            const maxSpins = 10;
-            const randomSpins = Math.floor(Math.random() * (maxSpins - minSpins + 1) + minSpins);
-            const totalRotation = randomSpins * 360 + targetRotationOffset;
-            
-            wheel.style.transform = `rotate(${totalRotation}deg)`;
-            
-            setTimeout(() => {
-                console.log("Giải thưởng đã chọn (sau khi quay):", selectedPrize); 
-                showResult(selectedPrize); 
-                isSpinning = false;
                 
-                spinBtn.textContent = '✅ ĐÃ QUAY';
-                statusMessage.textContent = '🎯 Bạn đã sử dụng lượt quay này. Nhấn nút bên dưới để chơi lại với thông tin mới.';
-                hasSpun = true;
-
-            }, 4100); 
-        }
-        
-        function showResult(prize) {
-            const popup = document.getElementById('resultPopup');
-            const popupTitle = document.getElementById('popupTitle');
-            const popupPrize = document.getElementById('popupPrize');
-            const popupMessage = document.getElementById('popupMessage');
-
-            console.log("Gọi hàm showResult với giải:", prize);
-            console.log("Popup element:", popup);
-
-            if (!popup || !popupTitle || !popupPrize || !popupMessage || !prize) {
-                console.error("Lỗi: Không tìm thấy một hoặc nhiều phần tử DOM cho pop-up hoặc không có thông tin giải thưởng.");
-                return;
-            }
-            
-            if (typeof prize.text !== 'string') {
-                console.error("Lỗi: prize.text không phải là chuỗi hoặc không tồn tại.");
-                prize.text = "Giải không xác định"; 
-            }
-
-            if (prize.text.includes('CHÚC BẠN MAY MẮN LẦN SAU') || prize.text.toLowerCase().includes('lần sau') || prize.text.toLowerCase().includes('may mắn sẽ đến')) { // Updated text
-                popupTitle.textContent = '😊 CHÚC BẠN MAY MẮN LẦN SAU!';
-                popupPrize.textContent = prize.text; 
-                popupMessage.textContent = 'Đừng buồn! Vẫn còn nhiều cơ hội phía trước. Hãy thử lại nhé!';
-            } else { 
-                popupTitle.textContent = '🎉 CHÚC MỪNG BẠN ĐÃ TRÚNG! 🎉';
-                popupPrize.textContent = prize.text;
-                popupMessage.textContent = `Tuyệt vời ${currentUser || 'bạn'}! Bạn đã rinh giải ${prize.text}! 🥳`;
-                createFireworks(prize.color);
-            }
-            
-            popup.style.display = 'flex'; 
-            console.log("Pop-up đã được hiển thị.");
-        }
-        
-        function createFireworks(baseColor = '#FFD700') {
-            const fireworksContainer = document.getElementById('fireworks');
-            if(!fireworksContainer) {
-                console.error("Không tìm thấy fireworksContainer");
-                return;
-            }
-            fireworksContainer.innerHTML = ''; 
-
-            const particleColors = [
-                baseColor,
-                getCssVariable('--primary-color') || '#FFD700',
-                getCssVariable('--accent-color') || '#FFA500',
-                '#FFFFFF',
-                adjustColorForGradient(baseColor, 30), 
-                adjustColorForGradient(baseColor, -30)
-            ];
-            
-            for (let i = 0; i < 30; i++) { 
+                if (selectedIndex === -1) selectedIndex = Math.floor(Math.random() * currentPrizes.length); 
+                
+                const selectedPrize = currentPrizes[selectedIndex];
+                const sectionAngle = 360 / currentPrizes.length;
+                const targetRotationOffset = -(selectedIndex * sectionAngle + sectionAngle / 2);
+                const randomSpins = Math.floor(Math.random() * 4 + 7);
+                const totalRotation = randomSpins * 360 + targetRotationOffset;
+                
+                wheelElement.style.transform = `rotate(${totalRotation}deg)`;
+                
                 setTimeout(() => {
-                    if (!fireworksContainer) return;
-                    const firework = document.createElement('div');
-                    firework.className = 'firework';
-                    
-                    const x = Math.random() * 100;
-                    const y = Math.random() * 80 + 10;
-                    firework.style.left = `${x}%`;
-                    firework.style.top = `${y}%`;
-                    firework.style.background = particleColors [Math.floor(Math.random() * particleColors.length)];
-                    
-                    firework.style.setProperty('--tx', `${(Math.random() - 0.5) * 50}px`);
-                    firework.style.setProperty('--ty', `${(Math.random() - 0.5) * 50}px`);
-
-                    fireworksContainer.appendChild(firework);
-                    
-                    setTimeout(() => {
-                        if (firework && firework.parentNode) { 
-                           firework.remove();
-                        }
-                    }, 1000); 
-                }, i * 30); 
+                    showResult(selectedPrize); 
+                    isSpinning = false;
+                    spinBtn.textContent = '✅ ĐÃ QUAY';
+                    statusMessage.textContent = '🎯 Bạn đã sử dụng lượt quay này.';
+                    hasSpun = true;
+                }, 4100); 
             }
-        }
-
-        function closePopup() {
-            const popup = document.getElementById('resultPopup');
-            const fireworksContainer = document.getElementById('fireworks');
-            if (popup) popup.style.display = 'none';
-            if (fireworksContainer) fireworksContainer.innerHTML = '';
             
-            const statusMessage = document.getElementById('statusMessage');
-            if (statusMessage) { 
-                const resetButtonHtml = '🎫 Để chơi tiếp, vui lòng <button onclick="resetGameForNewTurn()" class="reset-button-inline">SỬ DỤNG THÔNG TIN/MÃ MỚI</button>';
-                statusMessage.innerHTML = resetButtonHtml;
+            function showResult(prize) {
+                if (!prize || typeof prize.text !== 'string') return;
 
-                const styleSheet = document.styleSheets [0];
-                if (styleSheet) {
-                    let ruleExists = false;
-                    for (let i = 0; i < styleSheet.cssRules.length; i++) {
-                        if (styleSheet.cssRules [i].selectorText && styleSheet.cssRules [i].selectorText === '.reset-button-inline') {
-                            ruleExists = true;
-                            break;
-                        }
-                    }
-                    if (!ruleExists) {
-                        try {
-                            styleSheet.insertRule(`
-                                .reset-button-inline {
-                                    background: var(--gold-gradient);
-                                    color: var(--text-color-dark);
-                                    border: none;
-                                    padding: 8px 15px;
-                                    border-radius: 20px;
-                                    cursor: pointer;
-                                    font-weight: bold;
-                                    margin-left: 5px;
-                                    transition: var(--transition-normal);
-                                }
-                            `, styleSheet.cssRules.length);
-                            styleSheet.insertRule(`
-                                .reset-button-inline:hover {
-                                    transform: scale(1.05);
-                                }
-                            `, styleSheet.cssRules.length);
-                        } catch (e) {
-                            console.warn("Could not insert CSS rule for reset button:", e);
-                        }
-                    }
+                const isLoser = prize.text.toLowerCase().includes('lần sau') || prize.text.toLowerCase().includes('may mắn sẽ đến');
+                if (isLoser) {
+                    popupTitle.textContent = '😊 CHÚC BẠN MAY MẮN LẦN SAU!';
+                    popupPrize.textContent = prize.text; 
+                    popupMessage.textContent = 'Đừng buồn! Vẫn còn nhiều cơ hội phía trước!';
+                } else { 
+                    popupTitle.textContent = '🎉 CHÚC MỪNG BẠN ĐÃ TRÚNG! 🎉';
+                    popupPrize.textContent = prize.text;
+                    popupMessage.textContent = `Tuyệt vời ${currentUser || 'bạn'}! Bạn đã rinh giải ${prize.text}! 🥳`;
+                    createFireworks(prize.color);
+                }
+                resultPopup.style.display = 'flex'; 
+            }
+            
+            function createFireworks(baseColor = '#FFD700') {
+                fireworksContainer.innerHTML = ''; 
+                const particleColors = [baseColor, '#FFD700', '#FFA500', '#FFFFFF'];
+                
+                for (let i = 0; i < 30; i++) { 
+                    setTimeout(() => {
+                        const firework = document.createElement('div');
+                        firework.className = 'firework';
+                        firework.style.left = `${Math.random() * 100}%`;
+                        firework.style.top = `${Math.random() * 80 + 10}%`;
+                        firework.style.background = particleColors[Math.floor(Math.random() * particleColors.length)];
+                        firework.style.setProperty('--tx', `${(Math.random() - 0.5) * 50}px`);
+                        firework.style.setProperty('--ty', `${(Math.random() - 0.5) * 50}px`);
+                        fireworksContainer.appendChild(firework);
+                        setTimeout(() => firework.remove(), 1000); 
+                    }, i * 30); 
                 }
             }
-        }
-        
-        function resetGameForNewTurn() {
-            const gameArea = document.getElementById('gameArea');
-            const loginSection = document.getElementById('loginSection');
-            const usernameInput = document.getElementById('username');
-            const codeInput = document.getElementById('code');
-            const loginMessage = document.getElementById('loginMessage');
-            const wheel = document.getElementById('wheel');
-            const spinBtn = document.getElementById('spinBtn');
-            const statusMessage = document.getElementById('statusMessage');
 
-            if (gameArea) gameArea.classList.remove('active');
-            if (loginSection) loginSection.style.display = 'block';
+            function closePopup() {
+                resultPopup.style.display = 'none';
+                fireworksContainer.innerHTML = '';
+                const resetButtonHtml = '🎫 Để chơi tiếp, vui lòng <button id="resetGameBtn" class="reset-button-inline">SỬ DỤNG THÔNG TIN/MÃ MỚI</button>';
+                statusMessage.innerHTML = resetButtonHtml;
+                getEl('resetGameBtn').addEventListener('click', resetGameForNewTurn);
+            }
             
-            if (usernameInput) usernameInput.value = '';
-            if (codeInput) codeInput.value = '';
-            if (loginMessage) { 
+            function resetGameForNewTurn() {
+                gameArea.classList.remove('active');
+                loginSection.style.display = 'block';
+                usernameInput.value = '';
+                codeInput.value = '';
                 loginMessage.style.display = 'none';
-                loginMessage.classList.remove('error', 'success');
-            }
-            
-            if (wheel) {
-                wheel.style.transition = 'none';
-                wheel.style.transform = 'rotate(0deg)'; 
-                setTimeout(() => { 
-                    if(wheel) wheel.style.transition = 'transform 4s cubic-bezier(0.23, 1, 0.32, 1)'; 
-                }, 50);
-            }
-            
-            hasSpun = false;
-            isSpinning = false;
-            currentUser = ""; 
+                
+                wheelElement.style.transition = 'none';
+                wheelElement.style.transform = 'rotate(0deg)'; 
+                setTimeout(() => { wheelElement.style.transition = 'transform 4s cubic-bezier(0.23, 1, 0.32, 1)'; }, 50);
+                
+                hasSpun = false;
+                isSpinning = false;
+                currentUser = ""; 
 
-            if (spinBtn) {
                 spinBtn.disabled = false;
                 spinBtn.textContent = '🎲 QUAY NGAY 🎲';
+                statusMessage.innerHTML = '🍀 Chúc bạn may mắn! Nhấn nút để quay bánh xe! 🍀';
+                
+                createWheel();
             }
-            if (statusMessage) statusMessage.innerHTML = '🍀 Chúc bạn may mắn! Nhấn nút để quay bánh xe! 🍀';
             
-            createWheel();
-        }
-        
-        function createFallingMoney() {
-            const container = document.getElementById('fallingMoneyContainer');
-            if (!container) return;
+            function createFallingMoney() {
+                const particle = document.createElement('div');
+                particle.classList.add('money-particle');
+                particle.style.left = `${Math.random() * 100}vw`;
+                particle.style.animationDuration = `${Math.random() * 5 + 4}s`;
+                particle.style.setProperty('--sway-x', `${(Math.random() - 0.5) * 80}px`); 
+                particle.style.setProperty('--sway-rotate', `${(Math.random() - 0.5) * 180}deg`); 
+                particle.style.setProperty('--final-rotate', `${Math.random() * 720 - 360}deg`);
+                particle.addEventListener('animationend', () => particle.remove());
+                fallingMoneyContainer.appendChild(particle);
+            }
 
-            const particle = document.createElement('div');
-            particle.classList.add('money-particle');
+            // --- LEADERBOARD FUNCTIONS ---
+            function populateLeaderboard(numberOfEntries = 5) {
+                const virtualUsernames = ["CaoThủ_007", "ĐạiGia_SG", "ThầnBài_VIP", "TriệuPhú_88", "VuaQuayHũ", "LongThần_LB", "PhượngHoàng_Win", "KimTiền_Vàng", "MayMắn_999", "SiêuSao_Slot"];
+                const leaderboardPrizesPool = ["💎 8888K", "💎 888K", "💸 588K", "💰 188K"];
+                leaderboardBody.innerHTML = ''; 
 
-            particle.style.left = `${Math.random() * 100}vw`;
-            const duration = Math.random() * 5 + 4; 
-            particle.style.animationDuration = `${duration}s`;
-
-            particle.style.setProperty('--sway-x', `${(Math.random() - 0.5) * 80}px`); 
-            particle.style.setProperty('--sway-rotate', `${(Math.random() - 0.5) * 180}deg`); 
-            particle.style.setProperty('--final-rotate', `${Math.random() * 720 - 360}deg`);
-
-            particle.addEventListener('animationend', () => {
-                if (particle.parentNode) { 
-                    particle.remove();
-                }
-            });
-            container.appendChild(particle);
-        }
-
-        function getCssVariable(variableName) {
-            if (typeof window !== 'undefined' && typeof document !== 'undefined') {
-                try { 
-                  return getComputedStyle(document.documentElement).getPropertyValue(variableName).trim();
-                } catch(e) {
-                  console.warn("Không thể lấy CSS variable:", variableName, e);
-                  return null;
+                let tempUsernames = [...virtualUsernames]; 
+                for (let i = 0; i < numberOfEntries; i++) {
+                    if (tempUsernames.length === 0) break; 
+                    const userName = tempUsernames.splice(Math.floor(Math.random() * tempUsernames.length), 1)[0]; 
+                    const prizeName = leaderboardPrizesPool[Math.floor(Math.random() * leaderboardPrizesPool.length)];
+                    const row = leaderboardBody.insertRow();
+                    row.insertCell().textContent = `${i + 1}`;
+                    row.insertCell().textContent = userName;
+                    row.insertCell().textContent = prizeName;
                 }
             }
-            return null;
-        }
-
-        // --- LEADERBOARD FUNCTIONS ---
-        const virtualUsernames = ["CaoThủ_007", "ĐạiGia_SG", "ThầnBài_VIP", "TriệuPhú_88", "VuaQuayHũ", "LongThần_LB", "PhượngHoàng_Win", "KimTiền_Vàng", "MayMắn_999", "SiêuSao_Slot", "ThánhNổHũ", "BáChủ_Game"];
-        const leaderboardPrizesPool = ["💎 8888K", "💎 888K", "💸 588K", "💰 388K"];
-
-        function generateLeaderboardEntry() {
-            const randomUserIndex = Math.floor(Math.random() * virtualUsernames.length);
-            const randomPrizeIndex = Math.floor(Math.random() * leaderboardPrizesPool.length);
-            return {
-                name: virtualUsernames [randomUserIndex],
-                prize: leaderboardPrizesPool [randomPrizeIndex]
-            };
-        }
-
-        function populateLeaderboard(numberOfEntries = 5) {
-            const leaderboardBody = document.getElementById('leaderboardBody');
-            if (!leaderboardBody) {
-                console.error("Không tìm thấy phần tử leaderboardBody");
-                return;
-            }
-            leaderboardBody.innerHTML = ''; 
-
-            let tempUsernames = [...virtualUsernames]; 
-            const selectedEntries = [];
-            const count = Math.min(numberOfEntries, tempUsernames.length);
-
-            for (let i = 0; i < count; i++) {
-                if (tempUsernames.length === 0) break; 
-
-                const randomUserIndex = Math.floor(Math.random() * tempUsernames.length);
-                const userName = tempUsernames.splice(randomUserIndex, 1)[0]; 
-
-                const randomPrizeIndex = Math.floor(Math.random() * leaderboardPrizesPool.length);
-                const prizeName = leaderboardPrizesPool[randomPrizeIndex];
+            
+            // --- INITIALIZATION ---
+            function init() {
+                try {
+                    const storedCodes = localStorage.getItem('usedWheelCodes_LongBao');
+                    if (storedCodes) usedCodes = JSON.parse(storedCodes);
+                } catch (e) { console.error("Could not parse used codes from localStorage", e); }
                 
-                selectedEntries.push({ rank: i + 1, name: userName, prize: prizeName });
-            }
-
-            selectedEntries.forEach(entry => {
-                const row = leaderboardBody.insertRow();
-                
-                const cellRank = row.insertCell();
-                cellRank.textContent = `${entry.rank}`;
-                
-                const cellName = row.insertCell();
-                cellName.textContent = entry.name;
-                
-                const cellPrize = row.insertCell();
-                cellPrize.textContent = entry.prize;
-            });
-        }
-
-
-        window.addEventListener('load', () => {
-            const storedUsedCodes = localStorage.getItem('usedWheelCodes_LongBao');
-            if (storedUsedCodes) {
-                usedCodes = JSON.parse(storedUsedCodes);
-                console.log("Đã tải usedCodes từ localStorage:", usedCodes);
-            } else {
-                usedCodes = []; 
-                console.log("Không có usedCodes trong localStorage, khởi tạo mảng rỗng.");
-            }
-
-            const primaryColorValue = getCssVariable('--primary-color');
-            if (primaryColorValue && primaryColorValue.startsWith('#')) {
-                const r = parseInt(primaryColorValue.slice(1, 3), 16);
-                const g = parseInt(primaryColorValue.slice(3, 5), 16);
-                const b = parseInt(primaryColorValue.slice(5, 7), 16);
-                if (!isNaN(r) && !isNaN(g) && !isNaN(b)) {
+                const primaryColorValue = getComputedStyle(document.documentElement).getPropertyValue('--primary-color').trim();
+                if (primaryColorValue.startsWith('#')) {
+                    const r = parseInt(primaryColorValue.slice(1, 3), 16);
+                    const g = parseInt(primaryColorValue.slice(3, 5), 16);
+                    const b = parseInt(primaryColorValue.slice(5, 7), 16);
                     document.documentElement.style.setProperty('--primary-color-rgb', `${r},${g},${b}`);
                 }
-            }
-            
-            const btnNormal = document.getElementById('btnNormalWheel');
-            if (btnNormal) { 
-                 btnNormal.classList.add('active');
-                 activeWheelButton = btnNormal; 
-            } else {
-                console.warn("Không tìm thấy btnNormalWheel");
-            }
-            
-            currentPrizes = prizes_normal; 
 
-            createWheel(); 
-            
-            if (typeof createFallingMoney === "function") {
-                setInterval(createFallingMoney, 400); 
-            } else {
-                console.error("Hàm createFallingMoney không được định nghĩa.");
-            }
-
-            if (typeof populateLeaderboard === "function") { 
+                selectWheelType('normal');
                 populateLeaderboard(5); 
-            } else {
-                console.error("Hàm populateLeaderboard không được định nghĩa.");
+                setInterval(createFallingMoney, 400);
+
+                // Event Listeners
+                startBtn.addEventListener('click', startExperience);
+                btnNormalWheel.addEventListener('click', () => selectWheelType('normal'));
+                btnVipWheel.addEventListener('click', () => selectWheelType('vip'));
+                validateBtn.addEventListener('click', validateCode);
+                spinBtn.addEventListener('click', spinWheel);
+                closePopupBtn.addEventListener('click', closePopup);
             }
+
+            init();
         });
     </script>
 </body>
