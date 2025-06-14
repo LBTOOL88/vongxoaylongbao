@@ -94,7 +94,7 @@
             transition: opacity 0.7s ease-out, visibility 0s linear 0.7s;
         }
         .intro-splash.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
-        .intro-logo { height: 70px; margin-bottom: 25px; border-radius: 50%; box-shadow: 0 0 20px var(--primary-color), 0 0 30px var(--accent-color); }
+        .intro-logo { height: 70px; margin-bottom: 25px; /* Removed border-radius for potentially non-square logos */ }
         .intro-splash-title { font-size: 2.8em; color: var(--primary-color); text-shadow: 0 0 15px var(--primary-color); margin-bottom: 20px; font-weight: 700; line-height: 1.2; }
         .intro-splash-image { max-width: 50%; min-width: 280px; max-height: 35vh; border-radius: var(--border-radius); border: 3px solid var(--accent-color); box-shadow: var(--box-shadow-heavy); margin-bottom: 20px; object-fit: cover; }
         .intro-splash-subtitle { font-size: 1.5em; color: var(--text-color-light); margin-bottom: 30px; }
@@ -104,7 +104,7 @@
         
         .page-header { width: 100%; max-width: 1100px; display: flex; justify-content: center; align-items: center; padding: 10px 0; margin-bottom: 25px; flex-wrap: wrap; position: relative; z-index: 10; }
         .logo-container { display: flex; align-items: center; gap: 15px; }
-        .logo { height: 50px; border-radius: 50%; box-shadow: 0 0 10px var(--primary-color); }
+        .logo { height: 50px; }
         .header-site-title { font-size: 2.2em; font-weight: 700; color: var(--primary-color); text-shadow: 1px 1px 3px rgba(0,0,0,0.5), 0 0 15px var(--primary-color); background: linear-gradient(45deg, #FFD700, #FFA500, #FF6B6B, #FFD700); background-size: 300% 300%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: shimmerText 3s ease-in-out infinite; }
         
         .main-content { width: 100%; display: flex; flex-direction: column; align-items: center; position: relative; z-index: 5; }
@@ -247,16 +247,16 @@
     <div id="fallingMoneyContainer" class="falling-money-container"></div>
 
     <div id="introSplash" class="intro-splash">
-        <img src="https://i.ibb.co/TxLDWrXr/photo-2025-05-31-22-38-11.jpg" alt="Logo" class="intro-logo">
-        <h1 class="intro-splash-title">VÒNG XOAY ĐỈNH CAO<br>RINH NGAY SH!</h1>
-        <img src="https://i.ibb.co/6c8BLr2q/Honda-SH350i2025-Vn-E15jpg-1730857784.webp" alt="Giải Đặc Biệt SH 350i" class="intro-splash-image">
-        <p class="intro-splash-subtitle">Giải Thưởng Siêu Hot: <strong>XE SH 350i</strong> và Ngàn Quà Giá Trị!</p>
+        <img src="https://i.ibb.co/fVK3QXFn/logo.png" alt="logo" class="intro-logo">
+        <h1 class="intro-splash-title">VÒNG XOAY ĐỈNH CAO<br>RINH NGAY IPHONE!</h1>
+        <img src="https://i.ibb.co/8nYhZ6NQ/iphone-16-pro-max-thong-so-1-25f84e2fedb948bf8c7021806eeba7fb.webp" alt="Giải Đặc Biệt IPHONE 16 PROMAX" class="intro-splash-image">
+        <p class="intro-splash-subtitle">Giải Thưởng Siêu Hot: <strong>IPHONE 16 PROMAX 1TB</strong> và Ngàn Quà Giá Trị!</p>
         <button class="intro-splash-button" id="startExperienceBtn">Tham Gia Ngay!</button>
     </div>
     
     <header class="page-header">
         <div class="logo-container">
-            <img src="https://i.ibb.co/TxLDWrXr/photo-2025-05-31-22-38-11.jpg" alt="Logo" class="logo">
+            <img src="https://i.ibb.co/fVK3QXFn/logo.png" alt="logo" class="logo">
             <h1 class="header-site-title">VÒNG XOAY LONG BẢO</h1>
         </div>
     </header>
@@ -274,9 +274,9 @@
 
         <section class="special-prize-section">
             <h3 class="special-prize-title">🏆 GIẢI ĐẶC BIỆT CỦA TUẦN 🏆</h3>
-            <img src="https://i.ibb.co/6c8BLr2q/Honda-SH350i2025-Vn-E15jpg-1730857784.webp" alt="Xe SH 350i" class="special-prize-image">
+            <img src="https://i.ibb.co/8nYhZ6NQ/iphone-16-pro-max-thong-so-1-25f84e2fedb948bf8c7021806eeba7fb.webp" alt="IPHONE 16 PROMAX" class="special-prize-image">
             <p class="special-prize-description">
-                Không thể tin nổi! Giải đặc biệt tuần này là siêu phẩm <strong>XE HONDA SH 350i</strong> thời thượng! <br>
+                Không thể tin nổi! Giải đặc biệt tuần này là siêu phẩm <strong>IPHONE 16 PROMAX 1TB</strong> thời thượng! <br>
                 Quay ngay để trở thành chủ nhân tiếp theo!
             </p>
         </section>
@@ -348,7 +348,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const prizes_normal = [ 
-                { text: "🏍️ XE SH 350I", color: "#FF0000", weight: 1 },   
+                { text: "📱 IPHONE 16 PROMAX", color: "#FF0000", weight: 1 },   
                 { text: "💰 188K", color: "#FF6B6B", weight: 5 },      
                 { text: "💎 8888K", color: "#8E44AD", weight: 2 },  
                 { text: "💵 88K", color: "#E74C3C", weight: 10 }, 
