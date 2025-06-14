@@ -18,6 +18,7 @@
             --background-gradient: linear-gradient(45deg, #1a1a2e, #16213e, #0f3460);
             --gold-gradient: linear-gradient(45deg, var(--primary-color), var(--accent-color));
             --promo-gradient: linear-gradient(60deg, var(--accent-color), var(--primary-color), #FFC300);
+            --support-gradient: linear-gradient(60deg, #007bff, #00c6ff, #007bff);
             --money-green: #609966;
             --money-green-dark: #406849;
             --box-shadow-light: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -278,12 +279,17 @@
         .firework { position: absolute; width: 4px; height: 4px; border-radius: 50%; animation: fireworkExplodeEffect 1s ease-out forwards; }
         @keyframes fireworkExplodeEffect { 0% { transform: scale(0.5) translate(0,0); opacity: 1; } 50% { opacity: 0.8; } 100% { transform: scale(25) translate(var(--tx,0), var(--ty,0)); opacity: 0; } }
         
-        .promo-banner { text-align: center; margin-top: 35px; margin-bottom: 35px; padding: 25px 20px; background: var(--promo-gradient); border-radius: var(--border-radius); box-shadow: 0 6px 20px rgba(0,0,0,0.3); width: 100%; max-width: 800px; border: 2px solid var(--primary-color); }
+        .promo-banner { text-align: center; margin-top: 35px; margin-bottom: 25px; padding: 25px 20px; background: var(--promo-gradient); border-radius: var(--border-radius); box-shadow: 0 6px 20px rgba(0,0,0,0.3); width: 100%; max-width: 800px; border: 2px solid var(--primary-color); }
         .promo-banner-title { font-size: 1.8em; font-weight: 700; color: var(--text-color-dark); margin-bottom: 10px; text-shadow: 1px 1px 1px rgba(255,255,255,0.2); line-height: 1.4; }
         .promo-banner-title a { color: #1a1a2e; text-decoration: underline; transition: color 0.3s ease; font-weight: bold; }
         .promo-banner-title a:hover { color: #000; }
         .promo-banner-subtitle { font-size: 1.4em; font-weight: bold; color: var(--text-color-dark); text-transform: uppercase; letter-spacing: 1px; }
-        
+
+        .support-banner { text-align: center; margin-bottom: 35px; padding: 20px; background: var(--support-gradient); background-size: 200% 200%; animation: shimmerText 4s ease-in-out infinite; border-radius: var(--border-radius); box-shadow: 0 6px 20px rgba(0, 123, 255, 0.3); width: 100%; max-width: 800px; border: 2px solid #00c6ff; }
+        .support-banner-title { font-size: 1.8em; font-weight: 700; color: var(--text-color-light); text-shadow: 1px 1px 2px rgba(0,0,0,0.3); line-height: 1.4; letter-spacing: 1px; text-transform: uppercase; }
+        .support-banner-title a { color: var(--text-color-light); text-decoration: none; transition: color 0.3s ease; font-weight: bold; }
+        .support-banner-title a:hover { color: #fff; text-shadow: 0 0 10px #fff; }
+
         .leaderboard-section { text-align: center; margin-top: 20px; margin-bottom: 30px; padding: 25px; background: rgba(0, 0, 0, 0.65); border-radius: var(--border-radius); border: 1px solid var(--primary-color); box-shadow: var(--box-shadow-heavy); width: 100%; max-width: 800px; }
         .leaderboard-title { font-size: 2em; font-weight: 700; color: var(--primary-color); text-shadow: 0 0 10px var(--primary-color); margin-bottom: 20px; text-transform: uppercase; }
         .leaderboard-display table { width: 100%; border-collapse: collapse; color: var(--text-color-light); }
@@ -323,8 +329,9 @@
             .special-prize-title { font-size: 2em; }
             .special-prize-image { max-width: 85%; }
             .special-prize-description { font-size: 1.1em; }
-            .promo-banner-title { font-size: 1.6em; }
+            .promo-banner-title, .support-banner-title { font-size: 1.6em; }
             .promo-banner-subtitle { font-size: 1.2em; }
+            .support-banner { padding: 18px; }
             .login-section { max-width: 90%; padding: 20px; }
             .login-title { font-size: 1.2em; }
             .wheel-container { width: 400px; height: 400px; }
@@ -350,8 +357,8 @@
             .special-prize-title { font-size: 1.8em; }
             .special-prize-image { max-width: 90%; }
             .special-prize-description { font-size: 1em; }
-            .promo-banner { padding: 15px; }
-            .promo-banner-title { font-size: 1.3em; }
+            .promo-banner, .support-banner { padding: 15px; }
+            .promo-banner-title, .support-banner-title { font-size: 1.3em; }
             .promo-banner-subtitle { font-size: 1em; }
             .login-title { font-size: 1.1em; }
             .input-group input { padding: 10px; font-size: 0.9em; }
@@ -438,6 +445,10 @@
         <section class="promo-banner">
             <h3 class="promo-banner-title">ĐĂNG KÍ TẠI <a href="http://WWW.F168.CODES" target="_blank" rel="noopener noreferrer">WWW.F168.CODES</a></h3>
             <p class="promo-banner-subtitle">TẶNG 100% NẠP ĐẦU</p>
+        </section>
+
+        <section class="support-banner">
+            <h3 class="support-banner-title">TELE HỖ TRỢ <a href="https://t.me/LONGBAOF168" target="_blank" rel="noopener noreferrer">@LONGBAOF168</a></h3>
         </section>
 
         <section class="leaderboard-section">
