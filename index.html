@@ -840,16 +840,35 @@
                 fallingMoneyContainer.appendChild(particle);
             }
 
-            function populateLeaderboard(numberOfEntries = 5) {
-                const virtualUsernames = ["CaoThủ_007", "ĐạiGia_SG", "ThầnBài_VIP", "TriệuPhú_88", "VuaQuayHũ", "LongThần_LB", "PhượngHoàng_Win", "KimTiền_Vàng", "MayMắn_999", "SiêuSao_Slot"];
-                const leaderboardPrizesPool = ["💎 8888K", "💎 888K", "💸 588K", "💰 188K"];
+            function populateLeaderboard(numberOfEntries = 10) {
+                const virtualUsernames = [
+                    "RongVang88", "HoangKim99", "ChienThan01", "DaiGiaSG", "VuaSlot79", "ThanBaiPro", "QuayHuVip", "NoHuClub",
+                    "LocPhat68", "ThanTai39", "TrieuPhu86", "TyPhuHN", "SlotKing77", "BaiThu3D", "JackpotHunter", "BigWinOnly",
+                    "TheGioiSlot", "CuongPhong07", "AnhHungXaLo", "HuyenThoaiVip", "BatBaiChienThan", "KimCuongDo", "BachKim05",
+                    "SieuSao88", "CaoThuGaming", "ProPlayer12", "GamerViet", "NguoiChoiHePro", "TrumCuoi99", "ThachDau102",
+                    "VoDichThienHa", "PhongVanVoSong", "TuyetDinhCaoThu", "DocCoCauBai", "GameThuBatBai", "VipPlayer2k", "Ace777",
+                    "KingOfGames", "MasterSlot89", "LuckySpins45", "WinMachine66", "GoldMiner23", "CashHunter58", "FortuneChaser",
+                    "ReelMaster78", "SpinDoctor11", "BetKingPro", "HighRoller92", "PhatLocGaming", "TaiLocClub", "GiauTo86",
+                    "TienVaoNhuNuoc", "DanhBaiHay", "ChoiGameGioi", "ThangLon99", "CuocDoiLaGame", "SoDo68", "VanMayLuonDen",
+                    "AnTienMoiNgay", "LenDinhVinhQuang", "NhanQuaMoiTay", "SuPhuSlot", "DeNhatGameThu", "KeHuyDietGame",
+                    "HackerGame01", "BotCuaNhaCai", "NhaVoDich95", "ChienBinhBatTu", "QuyTocGaming", "TheLucVang", "OngTrumCuoi",
+                    "BaChuGame", "CoHoiVang", "GiacMoTrieuPhu", "SanThuongPro", "DoiThuDangGom", "KyNangThuongThua", "ManhMeVoDoi",
+                    "KhongSoAiCa", "ChapHetMoiKeo", "TuTinChienThang", "LamGiauKoKho", "ChoiLaThang", "TrungDam88", "TienDayTui",
+                    "FullHouseAce", "RoyalFlushKing", "FourAcesClub", "StraightUpWin", "AllInPro", "RiverRat9", "TurnMaster",
+                    "FlopKing", "BluffMaster", "PokerFaceVn", "CardShark21", "TheGambler67", "RongHoClub", "XocDiaVip"
+                ];
+                const leaderboardPrizesPool = ["68k", "188k", "388k", "588k", "888k", "38k", "88k"];
+                const prizePrefixes = ["💰", "💸", "💎"];
                 leaderboardBody.innerHTML = ''; 
 
                 let tempUsernames = [...virtualUsernames]; 
                 for (let i = 0; i < numberOfEntries; i++) {
                     if (tempUsernames.length === 0) break; 
-                    const userName = tempUsernames.splice(Math.floor(Math.random() * tempUsernames.length), 1)[0]; 
-                    const prizeName = leaderboardPrizesPool[Math.floor(Math.random() * leaderboardPrizesPool.length)];
+                    const userNameIndex = Math.floor(Math.random() * tempUsernames.length);
+                    const userName = tempUsernames.splice(userNameIndex, 1)[0]; 
+                    const prizeValue = leaderboardPrizesPool[Math.floor(Math.random() * leaderboardPrizesPool.length)];
+                    const prizePrefix = prizePrefixes[Math.floor(Math.random() * prizePrefixes.length)];
+                    const prizeName = `${prizePrefix} ${prizeValue}`;
                     const row = leaderboardBody.insertRow();
                     row.insertCell().textContent = `${i + 1}`;
                     row.insertCell().textContent = userName;
@@ -872,7 +891,8 @@
                 }
 
                 selectWheelType('normal');
-                populateLeaderboard(5); 
+                populateLeaderboard(10); 
+                setInterval(() => populateLeaderboard(10), 10000);
                 setInterval(createFallingMoney, 400);
 
                 startBtn.addEventListener('click', startExperience);
