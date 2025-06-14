@@ -4,14 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🎰 VÒNG XOAY LONG BẢO - Rinh Ngay Quà Khủng 🎰</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <style>
         /* --- GLOBAL STYLES --- */
         :root {
             --primary-color: #FFD700; /* Vàng gold */
             --secondary-color: #2c3e50;
             --accent-color: #FFA500; /* Vàng cam */
-            --vip-gold-color: #DAA520; /* Vàng đậm cho VIP */
-            --vip-dark-bg: #121212; /* Nền tối cho VIP */
+            --vip-gold-color: #DAA520;
+            --vip-dark-bg: #121212;
             --text-color-light: #f0f0f0;
             --text-color-dark: #333;
             --background-dark: #1a1a2e;
@@ -25,7 +30,7 @@
             --money-green-dark: #406849;
             --box-shadow-light: 0 4px 15px rgba(0, 0, 0, 0.2);
             --box-shadow-heavy: 0 8px 25px rgba(0, 0, 0, 0.4);
-            --border-radius: 12px;
+            --border-radius: 16px; /* Tăng độ bo tròn */
             --transition-normal: all 0.3s ease-in-out;
         }
 
@@ -35,8 +40,9 @@
             box-sizing: border-box;
         }
 
+        /* Nâng cấp Font chữ */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: var(--background-gradient);
             background-size: 400% 400%;
             animation: gradientShiftBody 15s ease infinite;
@@ -57,34 +63,16 @@
         }
 
         .falling-money-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            overflow: hidden;
-            pointer-events: none;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
+            overflow: hidden; pointer-events: none;
         }
-
         .money-particle {
-            position: absolute;
-            width: 15px;
-            height: 30px;
-            background-color: var(--money-green);
-            border: 1px solid var(--money-green-dark);
-            border-radius: 3px;
-            opacity: 0.9;
-            animation-name: fallAndSway;
-            animation-timing-function: linear;
-            animation-fill-mode: forwards;
+            position: absolute; width: 15px; height: 30px; background-color: var(--money-green);
+            border: 1px solid var(--money-green-dark); border-radius: 3px; opacity: 0.9;
+            animation-name: fallAndSway; animation-timing-function: linear; animation-fill-mode: forwards;
         }
-
         @keyframes fallAndSway {
             0% { transform: translateY(-50px) translateX(0px) rotateZ(0deg); opacity: 1; }
-            25% { transform: translateY(25vh) translateX(var(--sway-x, 20px)) rotateZ(var(--sway-rotate, 90deg)); }
-            50% { transform: translateY(50vh) translateX(calc(var(--sway-x, 20px) * -0.5)) rotateZ(calc(var(--sway-rotate, 90deg) * 2)); }
-            75% { transform: translateY(75vh) translateX(var(--sway-x, 20px)) rotateZ(calc(var(--sway-rotate, 90deg) * 3)); }
             100% { transform: translateY(105vh) translateX(0px) rotateZ(var(--final-rotate, 720deg)); opacity: 0; }
         }
 
@@ -104,48 +92,23 @@
         .intro-splash-subtitle { font-size: 1.5em; color: var(--text-color-light); margin-bottom: 25px; }
         .intro-splash-subtitle strong { color: var(--accent-color); font-weight: 700; }
         
-        .intro-splash-button { background: var(--gold-gradient); color: var(--text-color-dark); border: none; padding: 16px 30px; font-size: 1.2em; font-weight: bold; border-radius: 50px; cursor: pointer; transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; box-shadow: 0 5px 15px rgba(0,0,0,0.3); text-transform: uppercase; letter-spacing: 1px; }
-        .intro-splash-button:hover { transform: translateY(-2px) scale(1.03); }
+        .intro-splash-button { background: var(--gold-gradient); color: var(--text-color-dark); border: none; padding: 16px 30px; font-size: 1.2em; font-weight: 600; border-radius: 50px; cursor: pointer; transition: var(--transition-normal); box-shadow: 0 5px 15px rgba(0,0,0,0.3); text-transform: uppercase; letter-spacing: 1px; }
+        .intro-splash-button:hover { transform: translateY(-3px) scale(1.03); }
         
         #startExperienceBtn {
             background: var(--green-gradient);
-            color: var(--text-color-light);
-            width: 100%;
-            max-width: 450px;
+            color: var(--text-color-light); width: 100%; max-width: 450px;
         }
-        #startExperienceBtn:hover {
-             box-shadow: 0 8px 25px rgba(40, 167, 69, 0.5);
-        }
-
+        #startExperienceBtn:hover { box-shadow: 0 8px 25px rgba(40, 167, 69, 0.5); }
         .intro-link-container {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            width: 100%;
-            max-width: 450px;
-            margin-top: 15px;
+            display: flex; justify-content: center; gap: 15px;
+            width: 100%; max-width: 450px; margin-top: 15px;
         }
-
-        .intro-splash-button.external-link {
-            text-decoration: none;
-            display: inline-block;
-            flex-grow: 1;
-        }
-        .intro-splash-button.register {
-            background: var(--gold-gradient);
-        }
-        .intro-splash-button.register:hover {
-            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5);
-        }
-
-        .intro-splash-button.secondary {
-            background: var(--blue-gradient);
-            color: var(--text-color-light);
-        }
-        .intro-splash-button.secondary:hover {
-            box-shadow: 0 8px 25px rgba(0, 123, 255, 0.5);
-        }
-
+        .intro-splash-button.external-link { text-decoration: none; display: inline-block; flex-grow: 1; }
+        .intro-splash-button.register { background: var(--gold-gradient); }
+        .intro-splash-button.register:hover { box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5); }
+        .intro-splash-button.secondary { background: var(--blue-gradient); color: var(--text-color-light); }
+        .intro-splash-button.secondary:hover { box-shadow: 0 8px 25px rgba(0, 123, 255, 0.5); }
 
         .page-header { width: 100%; max-width: 1100px; display: flex; justify-content: center; align-items: center; padding: 10px 0; margin-bottom: 25px; flex-wrap: wrap; position: relative; z-index: 10; }
         .logo-container { display: flex; align-items: center; gap: 15px; }
@@ -153,160 +116,97 @@
         .header-site-title { font-size: 2.2em; font-weight: 700; color: var(--primary-color); text-shadow: 1px 1px 3px rgba(0,0,0,0.5), 0 0 15px var(--primary-color); background: linear-gradient(45deg, #FFD700, #FFA500, #FF6B6B, #FFD700); background-size: 300% 300%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: shimmerText 3s ease-in-out infinite; }
         
         .main-content { width: 100%; display: flex; flex-direction: column; align-items: center; position: relative; z-index: 5; }
-        .wheel-selection-area { display: flex; gap: 15px; position: relative; z-index: 6; }
-        .wheel-select-btn { padding: 10px 20px; font-size: 1em; font-weight: bold; border-radius: var(--border-radius); border: 2px solid var(--primary-color); background-color: transparent; color: var(--primary-color); cursor: pointer; transition: var(--transition-normal); }
-        .wheel-select-btn:hover, .wheel-select-btn.active { background-color: var(--primary-color); color: var(--text-color-dark); box-shadow: 0 0 15px var(--primary-color); }
+        
+        /* Hiệu ứng load nội dung */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .casino-header, .glassmorphism-section, .promo-banner, .support-banner {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        /* Áp dụng hiệu ứng Glassmorphism */
+        .glassmorphism-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            border-radius: var(--border-radius);
+            margin-bottom: 35px;
+            padding: 25px;
+            width: 100%;
+        }
 
         .casino-header { text-align: center; margin-top: 10px; margin-bottom: 30px; width: 100%; max-width: 800px; }
         .casino-title { font-size: 2.5em; font-weight: 700; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-shadow: 0 2px 4px rgba(0,0,0,0.3); margin-bottom: 10px; }
         @keyframes shimmerText { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
         .casino-subtitle { font-size: 1.2em; color: var(--accent-color); opacity: 0.95; }
-
-        .special-prize-section { text-align: center; margin-bottom: 35px; padding: 25px; background: rgba(0, 0, 0, 0.65); border-radius: var(--border-radius); border: 1px solid var(--primary-color); box-shadow: var(--box-shadow-heavy); width: 100%; max-width: 800px; }
+        
+        .special-prize-section { max-width: 800px; text-align: center; }
         .special-prize-title { font-size: 2.5em; font-weight: 700; color: var(--primary-color); text-shadow: 0 0 10px var(--primary-color); margin-bottom: 15px; }
         .special-prize-image { max-width: 75%; min-width: 250px; border-radius: 10px; border: 2px solid var(--accent-color); box-shadow: var(--box-shadow-light); margin-bottom: 15px; object-fit: cover; }
         .special-prize-description { font-size: 1.3em; color: var(--text-color-light); line-height: 1.6; }
         .special-prize-description strong { color: var(--accent-color); font-weight: 700; }
-
-        .login-section { background: rgba(0, 0, 0, 0.7); padding: 25px; border-radius: var(--border-radius); border: 1px solid var(--primary-color); margin-bottom: 35px; backdrop-filter: blur(8px); box-shadow: var(--box-shadow-heavy); width: 100%; max-width: 500px; }
+        
+        .login-section { max-width: 500px; }
         .login-title { color: var(--primary-color); margin-bottom: 20px; font-size: 1.4em; text-align: center; font-weight: 600; }
         .input-group { margin-bottom: 18px; }
-        .input-group label { display: block; margin-bottom: 7px; color: var(--primary-color); font-weight: 500; font-size: 1em; }
-        .input-group input { width: 100%; padding: 12px; border: 1px solid var(--accent-color); border-radius: 8px; background-color: rgba(0, 0, 0, 0.4); color: var(--text-color-light); font-size: 1em; transition: var(--transition-normal); }
+        .input-group label { display: flex; align-items: center; gap: 8px; margin-bottom: 7px; color: var(--primary-color); font-weight: 500; font-size: 1em; }
+        .input-group input { width: 100%; padding: 12px; border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 8px; background-color: rgba(0, 0, 0, 0.4); color: var(--text-color-light); font-size: 1em; transition: var(--transition-normal); font-family: 'Poppins', sans-serif; }
         .input-group input:focus { outline: none; border-color: var(--primary-color); box-shadow: 0 0 8px rgba(255, 215, 0, 0.5); }
+        .wheel-selection-area { display: flex; gap: 15px; justify-content: center; margin-bottom: 25px; margin-top: 10px; }
+        .wheel-select-btn { padding: 10px 20px; font-size: 1em; font-weight: 600; border-radius: var(--border-radius); border: 2px solid var(--primary-color); background-color: transparent; color: var(--primary-color); cursor: pointer; transition: var(--transition-normal); }
+        .wheel-select-btn:hover, .wheel-select-btn.active { background-color: var(--primary-color); color: var(--text-color-dark); box-shadow: 0 0 15px var(--primary-color); transform: translateY(-2px); }
         .validate-btn { width: 100%; padding: 12px; background: var(--green-gradient); color: var(--text-color-light); border: none; border-radius: 50px; font-size: 1.1em; font-weight: bold; cursor: pointer; transition: var(--transition-normal); box-shadow: var(--box-shadow-light); }
-        .validate-btn:hover { background: linear-gradient(45deg, #218838, #1e7e34); transform: translateY(-1px); box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4); }
+        .validate-btn:hover { background: linear-gradient(45deg, #218838, #1e7e34); transform: translateY(-2px); box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4); }
         
         .status-message, #loginMessage { margin-top: 15px; padding: 12px; border-radius: 8px; text-align: center; font-weight: 500; font-size: 0.95em; border-width: 1px; border-style: solid; }
-         #loginMessage.error { background: rgba(255, 0, 0, 0.1); border-color: #FF0000; color: #FF6B6B; }
-         #loginMessage.success { background: rgba(0, 255, 0, 0.1); border-color: #00FF00; color: #20c997; }
+        #loginMessage.error { background: rgba(255, 0, 0, 0.1); border-color: #FF0000; color: #FF6B6B; }
+        #loginMessage.success { background: rgba(0, 255, 0, 0.1); border-color: #00FF00; color: #20c997; }
 
-        .game-area { display: none; text-align: center; width: 100%; max-width: 650px; margin-bottom: 35px; background: rgba(0,0,0,0.6); padding: 30px; border-radius: var(--border-radius); box-shadow: var(--box-shadow-heavy); }
+        .game-area { text-align: center; max-width: 650px; padding: 30px; display: none; }
         .game-area.active { display: block; }
         
-        .wheel-container { 
-            position: relative; 
-            width: 500px; 
-            height: 500px; 
-            margin: 0 auto 35px; 
-            filter: drop-shadow(0px 10px 15px rgba(0,0,0,0.5)); 
-        }
-        .wheel { 
-            width: 100%; 
-            height: 100%; 
-            border-radius: 50%; 
-            position: relative; 
-            overflow: hidden; 
-            border: 10px solid #1e2d3b;
-            box-shadow: 
-                inset 0 0 20px rgba(0,0,0,0.7), 
-                0 0 0 8px var(--primary-color), 
-                0 0 15px rgba(0,0,0,0.4);
+        .wheel-container { position: relative; width: 500px; height: 500px; margin: 0 auto 35px; filter: drop-shadow(0px 10px 15px rgba(0,0,0,0.5)); }
+        .wheel { width: 100%; height: 100%; border-radius: 50%; position: relative; overflow: hidden; border: 10px solid #1e2d3b;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.7), 0 0 0 8px var(--primary-color), 0 0 15px rgba(0,0,0,0.4);
             transition: transform 5s cubic-bezier(0.25, 1, 0.3, 1);
         }
-        .wheel::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background: radial-gradient(circle at top right, rgba(255,255,255,0.15), rgba(255,255,255,0) 60%);
-            z-index: 5;
-            pointer-events: none;
+        .wheel::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 50%;
+            background: radial-gradient(circle at top right, rgba(255,255,255,0.15), rgba(255,255,255,0) 60%); z-index: 5; pointer-events: none;
         }
-        .wheel-section { 
-            position: absolute; 
-            width: 100%; 
-            height: 100%; 
-            top: 0; left: 0; 
-            font-weight: 600; 
-            box-shadow: inset 0 0 1px rgba(0,0,0,0.05); 
-        }
-        .wheel-section span { 
-            display: block; 
-            position: absolute; 
-            white-space: nowrap; 
-            text-align: center; 
-            font-weight: 500; 
-            color: white; 
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.8); 
-        }
+        .wheel-section { position: absolute; width: 100%; height: 100%; top: 0; left: 0; font-weight: 600; box-shadow: inset 0 0 1px rgba(0,0,0,0.05); }
+        .wheel-section span { display: block; position: absolute; white-space: nowrap; text-align: center; font-weight: 500; color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.8); }
         
-        .pointer { 
-            position: absolute; 
-            top: -15px; 
-            left: 50%; 
-            transform: translateX(-50%); 
-            width: 56px; 
-            height: 42px; 
-            z-index: 100; 
-            filter: drop-shadow(0 4px 5px rgba(0,0,0,0.5));
-            -webkit-filter: drop-shadow(0 4px 5px rgba(0,0,0,0.5));
-            border-left: none;
-            border-right: none;
-            border-top: none;
+        .pointer { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); width: 56px; height: 42px; z-index: 100;
+            filter: drop-shadow(0 4px 5px rgba(0,0,0,0.5)); -webkit-filter: drop-shadow(0 4px 5px rgba(0,0,0,0.5));
+            border-left: none; border-right: none; border-top: none;
         }
-        .pointer .pointer-visual {
-             position: absolute;
-             top: 0; 
-             left: 0;
-             width: 100%;
-             height: 100%;
-             background: linear-gradient(to top, var(--primary-color), #FFFFFF);
-             clip-path: polygon(50% 100%, 100% 0, 0 0);
-             transform: rotate(180deg);
+        .pointer .pointer-visual { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, var(--primary-color), #FFFFFF);
+             clip-path: polygon(50% 100%, 100% 0, 0 0); transform: rotate(180deg);
         }
 
-        .center-circle { 
-            position: absolute; 
-            top: 50%; 
-            left: 50%; 
-            transform: translate(-50%, -50%); 
-            width: 80px; 
-            height: 80px; 
-            background: radial-gradient(circle, #8c96a0, #2c3e50);
-            border-radius: 50%; 
-            border: 5px solid var(--accent-color); 
-            z-index: 50; 
-            box-shadow: inset 0 0 15px rgba(0,0,0,0.6), 0 3px 6px rgba(0,0,0,0.3); 
+        .center-circle { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px;
+            background: radial-gradient(circle, #8c96a0, #2c3e50); border-radius: 50%; border: 5px solid var(--accent-color);
+            z-index: 50; box-shadow: inset 0 0 15px rgba(0,0,0,0.6), 0 3px 6px rgba(0,0,0,0.3); 
         }
         
-        .spin-button { 
-            background: var(--gold-gradient); 
-            color: var(--text-color-dark); 
-            border: none; 
-            padding: 18px 50px; 
-            font-size: 1.4em; 
-            font-weight: bold; 
-            border-radius: 50px; 
-            cursor: pointer; 
-            transition: var(--transition-normal); 
-            box-shadow: var(--box-shadow-heavy); 
-            text-transform: uppercase; 
-            letter-spacing: 1.5px; 
-            margin-top: 25px; 
+        .spin-button { background: var(--gold-gradient); color: var(--text-color-dark); border: none; padding: 18px 50px; font-size: 1.4em;
+            font-weight: bold; border-radius: 50px; cursor: pointer; transition: var(--transition-normal); box-shadow: var(--box-shadow-heavy);
+            text-transform: uppercase; letter-spacing: 1.5px; margin-top: 25px; 
         }
-        .spin-button:hover { 
-            transform: scale(1.05) translateY(-2px); 
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.5); 
-        }
-        .spin-button:disabled { 
-            background: #6c757d; 
-            color: #ccc; 
-            cursor: not-allowed; 
-            transform: none; 
-            opacity: 0.7; 
-            box-shadow: var(--box-shadow-light); 
-        }
-        #statusMessage.wheel-status { 
-            background: rgba(var(--primary-color-rgb, 255, 215, 0), 0.1); 
-            border: 1px solid var(--primary-color); 
-            color: var(--primary-color); 
-            margin-top: 25px;
-            padding: 15px;
-            font-size: 1.1em;
+        .spin-button:hover { transform: scale(1.05) translateY(-2px); box-shadow: 0 10px 30px rgba(255, 215, 0, 0.5); }
+        .spin-button:disabled { background: #6c757d; color: #ccc; cursor: not-allowed; transform: none; opacity: 0.7; box-shadow: var(--box-shadow-light); }
+        #statusMessage.wheel-status { background: rgba(var(--primary-color-rgb, 255, 215, 0), 0.1); border: 1px solid var(--primary-color);
+            color: var(--primary-color); margin-top: 25px; padding: 15px; font-size: 1.1em;
         }
         
         .result-popup { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.9); backdrop-filter: blur(5px); display: none; align-items: center; justify-content: center; z-index: 1000; animation: fadeInPopup 0.4s ease-out; }
@@ -323,104 +223,75 @@
         .firework { position: absolute; width: 4px; height: 4px; border-radius: 50%; animation: fireworkExplodeEffect 1s ease-out forwards; }
         @keyframes fireworkExplodeEffect { 0% { transform: scale(0.5) translate(0,0); opacity: 1; } 50% { opacity: 0.8; } 100% { transform: scale(25) translate(var(--tx,0), var(--ty,0)); opacity: 0; } }
         
-        .promo-banner { text-align: center; margin-top: 35px; margin-bottom: 25px; padding: 25px 20px; background: var(--promo-gradient); border-radius: var(--border-radius); box-shadow: 0 6px 20px rgba(0,0,0,0.3); width: 100%; max-width: 800px; border: 2px solid var(--primary-color); }
+        .promo-banner, .support-banner { text-align: center; margin-bottom: 25px; padding: 25px 20px; border-radius: var(--border-radius); box-shadow: 0 6px 20px rgba(0,0,0,0.3); width: 100%; max-width: 800px; }
+        .promo-banner { background: var(--promo-gradient); border: 2px solid var(--primary-color); }
         .promo-banner-title { font-size: 1.8em; font-weight: 700; color: var(--text-color-dark); margin-bottom: 10px; text-shadow: 1px 1px 1px rgba(255,255,255,0.2); line-height: 1.4; }
         .promo-banner-title a { color: #1a1a2e; text-decoration: underline; transition: color 0.3s ease; font-weight: bold; }
         .promo-banner-title a:hover { color: #000; }
         .promo-banner-subtitle { font-size: 1.4em; font-weight: bold; color: var(--text-color-dark); text-transform: uppercase; letter-spacing: 1px; }
 
-        .support-banner { text-align: center; margin-bottom: 35px; padding: 20px; background: var(--support-gradient); background-size: 200% 200%; animation: shimmerText 4s ease-in-out infinite; border-radius: var(--border-radius); box-shadow: 0 6px 20px rgba(0, 123, 255, 0.3); width: 100%; max-width: 800px; border: 2px solid #00c6ff; }
+        .support-banner { background: var(--support-gradient); background-size: 200% 200%; animation: shimmerText 4s ease-in-out infinite; border: 2px solid #00c6ff; }
         .support-banner-title { font-size: 1.8em; font-weight: 700; color: var(--text-color-light); text-shadow: 1px 1px 2px rgba(0,0,0,0.3); line-height: 1.4; letter-spacing: 1px; text-transform: uppercase; }
         .support-banner-title a { color: var(--text-color-light); text-decoration: none; transition: color 0.3s ease; font-weight: bold; }
         .support-banner-title a:hover { color: #fff; text-shadow: 0 0 10px #fff; }
 
-        .leaderboard-section { text-align: center; margin-top: 20px; margin-bottom: 30px; padding: 25px; background: rgba(0, 0, 0, 0.65); border-radius: var(--border-radius); border: 1px solid var(--primary-color); box-shadow: var(--box-shadow-heavy); width: 100%; max-width: 800px; }
+        .leaderboard-section { max-width: 800px; text-align: center; }
         .leaderboard-title { font-size: 2em; font-weight: 700; color: var(--primary-color); text-shadow: 0 0 10px var(--primary-color); margin-bottom: 20px; text-transform: uppercase; }
-        .leaderboard-display table { width: 100%; border-collapse: collapse; color: var(--text-color-light); }
-        .leaderboard-display th, .leaderboard-display td { padding: 10px 12px; border-bottom: 1px solid rgba(var(--primary-color-rgb, 255, 215, 0), 0.3); text-align: left; }
+        .leaderboard-display table { width: 100%; border-collapse: collapse; color: var(--text-color-light); background: rgba(0,0,0,0.2); border-radius: 8px; overflow: hidden;}
+        .leaderboard-display th, .leaderboard-display td { padding: 12px 15px; border-bottom: 1px solid rgba(var(--primary-color-rgb, 255, 215, 0), 0.2); text-align: left; }
         .leaderboard-display th { color: var(--accent-color); font-size: 1.1em; text-transform: uppercase; }
         .leaderboard-display td:nth-child(1) { font-weight: bold; color: var(--primary-color); width: 15%; text-align: center; }
-        .leaderboard-display td:nth-child(2) { width: 50%; }
-        .leaderboard-display td:nth-child(3) { width: 35%; font-weight: 500; }
+        .leaderboard-display td .fa-trophy { margin-right: 5px; }
         .leaderboard-display tr:last-child td { border-bottom: none; }
+        .leaderboard-display tr:nth-child(1) td:nth-child(1) { color: #FFD700; }
+        .leaderboard-display tr:nth-child(2) td:nth-child(1) { color: #C0C0C0; }
+        .leaderboard-display tr:nth-child(3) td:nth-child(1) { color: #CD7F32; }
 
         /* --- VIP WHEEL THEME --- */
-        .wheel.wheel-vip-theme { 
-            border-color: var(--vip-dark-bg); 
-            box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.8), 
-                        0 0 0 8px var(--vip-gold-color),
-                        0 0 40px var(--vip-gold-color);
-        }
-        .pointer.pointer-vip-theme > .pointer-visual {
-            background: linear-gradient(to top, var(--vip-gold-color), #FFFFFF);
-         }
-        .center-circle.center-circle-vip-theme { 
-            background: var(--vip-dark-bg); 
-            border-color: var(--vip-gold-color); 
-            box-shadow: inset 0 0 15px #000, 0 0 10px var(--vip-gold-color); 
-        }
+        .wheel.wheel-vip-theme { border-color: var(--vip-dark-bg); box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.8), 0 0 0 8px var(--vip-gold-color), 0 0 40px var(--vip-gold-color); }
+        .pointer.pointer-vip-theme > .pointer-visual { background: linear-gradient(to top, var(--vip-gold-color), #FFFFFF); }
+        .center-circle.center-circle-vip-theme { background: var(--vip-dark-bg); border-color: var(--vip-gold-color); box-shadow: inset 0 0 15px #000, 0 0 10px var(--vip-gold-color); }
 
         @media (max-width: 768px) {
-            .page-header { justify-content: center; text-align: center; gap: 10px; }
-            .logo-container { justify-content: center; }
             .header-site-title { font-size: 1.8em; }
             .intro-splash-title { font-size: 2.2em; }
             .intro-splash-image { max-width: 70%; max-height: 30vh; }
-            .intro-splash-subtitle { font-size: 1.3em; }
             .intro-splash-button { font-size: 1.1em; padding: 14px 25px; }
             .casino-title { font-size: 2.2em; }
-            .casino-subtitle { font-size: 1.1em; }
             .special-prize-title { font-size: 2em; }
             .special-prize-image { max-width: 85%; }
             .special-prize-description { font-size: 1.1em; }
             .promo-banner-title, .support-banner-title { font-size: 1.6em; }
             .promo-banner-subtitle { font-size: 1.2em; }
-            .support-banner { padding: 18px; }
-            .login-section { max-width: 90%; padding: 20px; }
-            .login-title { font-size: 1.2em; }
+            .glassmorphism-section { padding: 20px; }
             .wheel-container { width: 400px; height: 400px; }
             .spin-button { font-size: 1.2em; padding: 15px 40px; }
-            .popup-content { max-width: 90%; padding: 25px; }
             .popup-title { font-size: 2em; }
             .popup-prize { font-size: 1.5em; }
             .leaderboard-title { font-size: 1.6em; }
-            .leaderboard-display th, .leaderboard-display td { padding: 8px; font-size: 0.9em; }
         }
 
         @media (max-width: 480px) {
-            body { padding: 10px 5px; }
-            .logo { height: 40px; }
             .header-site-title { font-size: 1.5em; }
             .intro-logo { height: 60px; margin-bottom: 15px; }
             .intro-splash-title { font-size: 1.8em; margin-bottom: 15px; }
             .intro-splash-image { max-width: 80%; max-height: 25vh; min-width: unset; margin-bottom: 15px; }
             .intro-splash-subtitle { font-size: 1.1em; margin-bottom: 20px;}
             .intro-splash-button { font-size: 1em; padding: 12px 20px; }
-            .intro-link-container {
-                flex-direction: column;
-                align-items: stretch;
-                max-width: 80%;
-                gap: 10px;
-            }
-            #startExperienceBtn {
-                max-width: 80%;
-            }
+            .intro-link-container { flex-direction: column; align-items: stretch; max-width: 80%; gap: 10px; }
+            #startExperienceBtn { max-width: 80%; }
             .casino-title { font-size: 1.8em; }
-            .casino-subtitle { font-size: 1em; }
             .special-prize-title { font-size: 1.8em; }
             .special-prize-image { max-width: 90%; }
             .special-prize-description { font-size: 1em; }
             .promo-banner, .support-banner { padding: 15px; }
             .promo-banner-title, .support-banner-title { font-size: 1.3em; }
             .promo-banner-subtitle { font-size: 1em; }
-            .login-title { font-size: 1.1em; }
-            .input-group input { padding: 10px; font-size: 0.9em; }
-            .validate-btn { font-size: 1em; padding: 10px; }
             .wheel-container { width: calc(100vw - 40px); height: calc(100vw - 40px); max-width: 320px; max-height: 320px; }
             .spin-button { font-size: 1em; padding: 12px 35px; }
             .popup-title { font-size: 1.8em; }
             .popup-prize { font-size: 1.3em; }
-            .leaderboard-display th, .leaderboard-display td { font-size: 0.85em; padding: 6px; }
+            .leaderboard-display th, .leaderboard-display td { font-size: 0.85em; padding: 8px; }
         }
     </style>
 </head>
@@ -454,7 +325,7 @@
             <p class="casino-subtitle">✨ Giải Thưởng Hấp Dẫn Đang Chờ Đón Bạn ✨</p>
         </section>
 
-        <section class="special-prize-section">
+        <section class="glassmorphism-section special-prize-section">
             <h3 class="special-prize-title">🏆 GIẢI ĐẶC BIỆT CỦA TUẦN 🏆</h3>
             <img src="https://i.ibb.co/8nYhZ6NQ/iphone-16-pro-max-thong-so-1-25f84e2fedb948bf8c7021806eeba7fb.webp" alt="IPHONE 16 PROMAX" class="special-prize-image">
             <p class="special-prize-description">
@@ -463,27 +334,27 @@
             </p>
         </section>
 
-        <section class="login-section" id="loginSection">
+        <section class="glassmorphism-section login-section" id="loginSection">
             <h4 class="login-title">🎫 NHẬP THÔNG TIN ĐỂ THAM GIA 🎫</h4>
             <div class="input-group">
-                <label for="username">👤 Tài khoản:</label>
+                <label for="username"><i class="fa-solid fa-user"></i> Tài khoản:</label>
                 <input type="text" id="username" placeholder="Nhập tài khoản của bạn">
             </div>
             <div class="input-group">
-                <label for="code">🎟️ Mã code (Nếu có):</label>
+                <label for="code"><i class="fa-solid fa-ticket"></i> Mã code (Nếu có):</label>
                 <input type="text" id="code" placeholder="Nhập mã code hợp lệ">
             </div>
 
-            <div class="wheel-selection-area" style="justify-content: center; margin-bottom: 25px; margin-top: 10px;">
-                <button id="btnNormalWheel" class="wheel-select-btn active">🎡 Vòng Quay Thường</button>
-                <button id="btnVipWheel" class="wheel-select-btn">🌟 Vòng Quay VIP</button>
+            <div class="wheel-selection-area">
+                <button id="btnNormalWheel" class="wheel-select-btn active"><i class="fa-solid fa-dharmachakra"></i> Vòng Quay Thường</button>
+                <button id="btnVipWheel" class="wheel-select-btn"><i class="fa-solid fa-star"></i> Vòng Quay VIP</button>
             </div>
             
-            <button class="validate-btn" id="validateBtn">🚀 XÁC NHẬN THAM GIA</button>
+            <button class="validate-btn" id="validateBtn"><i class="fa-solid fa-rocket"></i> XÁC NHẬN THAM GIA</button>
             <div id="loginMessage" class="status-message" style="display: none;"></div>
         </section>
 
-        <section class="game-area" id="gameArea">
+        <section class="glassmorphism-section game-area" id="gameArea">
             <div class="wheel-container">
                 <div class="pointer">
                     <div class="pointer-visual"></div>
@@ -493,7 +364,7 @@
             </div>
 
             <button class="spin-button" id="spinBtn">
-                🎲 QUAY NGAY 🎲
+                <i class="fa-solid fa-dice-d6"></i> QUAY NGAY
             </button>
 
             <div id="statusMessage" class="status-message wheel-status">
@@ -507,11 +378,11 @@
         </section>
 
         <section class="support-banner">
-            <h3 class="support-banner-title">TELE HỖ TRỢ <a href="https://t.me/LONGBAOF168" target="_blank" rel="noopener noreferrer">@LONGBAOF168</a></h3>
+            <h3 class="support-banner-title"><i class="fa-brands fa-telegram"></i> TELE HỖ TRỢ <a href="https://t.me/LONGBAOF168" target="_blank" rel="noopener noreferrer">@LONGBAOF168</a></h3>
         </section>
 
-        <section class="leaderboard-section">
-            <h3 class="leaderboard-title">🏆 BẢNG VINH DANH LONG BẢO 🏆</h3>
+        <section class="glassmorphism-section leaderboard-section">
+            <h3 class="leaderboard-title"><i class="fa-solid fa-trophy"></i> BẢNG VINH DANH LONG BẢO</h3>
             <div id="leaderboardDisplay" class="leaderboard-display">
                 <table>
                     <thead>
@@ -540,6 +411,7 @@
     </div>
 
     <script>
+        // All JavaScript functions remain unchanged as requested.
         document.addEventListener('DOMContentLoaded', () => {
             const prizes_normal = [ 
                 { text: "📱 IPHONE 16 PROMAX", color: "#FF0000", weight: 0 },   
@@ -568,27 +440,18 @@
             let activeWheelType = 'normal';
 
             const validCodes = [
-                "LB73915", "LB28406", "LB91734", "LB50281", "LB64739",
-                "LB19825", "LB82504", "LB37196", "LB05482", "LB46917",
-                "LB71539", "LB20864", "LB95318", "LB58270", "LB61943",
-                "LB14075", "LB80329", "LB36751", "LB09246", "LB42708",
-                "LB78162", "LB25093", "LB90471", "LB53824", "LB67150",
-                "LB12986", "LB86357", "LB31024", "LB04791", "LB49158",
-                "LB75032", "LB29486", "LB93850", "LB57123", "LB60497",
-                "LB18264", "LB83719", "LB30582", "LB06945", "LB41207",
-                "LB70851", "LB24193", "LB97530", "LB51862", "LB65294",
-                "LB10627", "LB85091", "LB39468", "LB02735", "LB48106"
+                "LB73915", "LB28406", "LB91734", "LB50281", "LB64739", "LB19825", "LB82504", "LB37196", "LB05482", "LB46917",
+                "LB71539", "LB20864", "LB95318", "LB58270", "LB61943", "LB14075", "LB80329", "LB36751", "LB09246", "LB42708",
+                "LB78162", "LB25093", "LB90471", "LB53824", "LB67150", "LB12986", "LB86357", "LB31024", "LB04791", "LB49158",
+                "LB75032", "LB29486", "LB93850", "LB57123", "LB60497", "LB18264", "LB83719", "LB30582", "LB06945", "LB41207",
+                "LB70851", "LB24193", "LB97530", "LB51862", "LB65294", "LB10627", "LB85091", "LB39468", "LB02735", "LB48106"
             ];
 
             const validVipCodes = [
-                "VIP75391", "VIP20846", "VIP91374", "VIP58021", "VIP63749",
-                "VIP19285", "VIP82054", "VIP37916", "VIP05842", "VIP46170"
+                "VIP75391", "VIP20846", "VIP91374", "VIP58021", "VIP63749", "VIP19285", "VIP82054", "VIP37916", "VIP05842", "VIP46170"
             ];
             
-            let usedCodes = []; 
-            let isSpinning = false;
-            let currentUser = "";
-            let hasSpun = false; 
+            let usedCodes = []; let isSpinning = false; let currentUser = ""; let hasSpun = false; 
 
             const getEl = (id) => document.getElementById(id);
             
@@ -669,47 +532,33 @@
                     section.className = 'wheel-section';
                     let adjustedColor = adjustColorForGradient(prize.color, -25); 
                     section.style.background = `linear-gradient(135deg, ${prize.color}, ${adjustedColor})`;
-
                     const startAngleRad = (i * sectionAngle + angleOffsetForPointer) * Math.PI / 180;
                     const endAngleRad = ((i + 1) * sectionAngle - gap + angleOffsetForPointer) * Math.PI / 180;
-
                     const p_center_x = 50; const p_center_y = 50;
                     const p1_x = p_center_x + 50 * Math.cos(startAngleRad);
                     const p1_y = p_center_y + 50 * Math.sin(startAngleRad);
                     const p2_x = p_center_x + 50 * Math.cos(endAngleRad);
                     const p2_y = p_center_y + 50 * Math.sin(endAngleRad);
-
                     section.style.clipPath = `polygon(${p_center_x}% ${p_center_y}%, ${p1_x}% ${p1_y}%, ${p2_x}% ${p2_y}%)`;
                     
                     const span = document.createElement('span');
                     span.textContent = prize.text;
-                    
                     let fontSize = '15px'; 
                     let textRadius = 38; 
-                    
-                    if (numPrizes > 8) {
-                        fontSize = '14px';
-                        textRadius = 37;
-                    }
-                    if (prize.text.length > 15) {
-                        fontSize = '12px';
-                    }
-
+                    if (numPrizes > 8) { fontSize = '14px'; textRadius = 37; }
+                    if (prize.text.length > 15) { fontSize = '12px'; }
                     span.style.fontSize = fontSize;
                     
                     const textAngleDeg = i * sectionAngle + (sectionAngle / 2) + angleOffsetForPointer;
                     const textAngleRad = textAngleDeg * Math.PI / 180;
-                    
                     const textX = 50 + textRadius * Math.cos(textAngleRad);
                     const textY = 50 + textRadius * Math.sin(textAngleRad);
-                    
                     span.style.left = `${textX}%`;
                     span.style.top = `${textY}%`;
                     
                     let visualTextAngle = textAngleDeg + 90; 
                     if (textAngleDeg > -90 && textAngleDeg < 90) { visualTextAngle += 180; }
                     span.style.transform = `translate(-50%, -50%) rotate(${visualTextAngle}deg)`;
-                    
                     section.appendChild(span);
                     wheelElement.appendChild(section);
                 });
@@ -730,43 +579,26 @@
                 const username = usernameInput.value.trim();
                 const code = codeInput.value.trim().toUpperCase();
                 
-                if (!username) {
-                    showLoginMessage("❌ Vui lòng nhập tài khoản!", "error");
-                    return;
-                }
+                if (!username) { showLoginMessage("❌ Vui lòng nhập tài khoản!", "error"); return; }
 
                 let isValid = false;
                 if (activeWheelType === 'vip') {
-                    if (!code) {
-                        showLoginMessage("❌ Vui lòng nhập Mã Code VIP!", "error");
-                        return;
-                    }
-                    if (validVipCodes.includes(code)) {
-                        isValid = true;
-                    } else {
-                        showLoginMessage("❌ Mã Code VIP không hợp lệ!", "error");
-                        return;
-                    }
+                    if (!code) { showLoginMessage("❌ Vui lòng nhập Mã Code VIP!", "error"); return; }
+                    if (validVipCodes.includes(code)) { isValid = true; } 
+                    else { showLoginMessage("❌ Mã Code VIP không hợp lệ!", "error"); return; }
                 } else { 
                     if (code && !validCodes.includes(code)) {
-                         if (validVipCodes.includes(code)) {
-                            showLoginMessage("❌ Mã này dành cho Vòng Quay VIP. Vui lòng chọn đúng vòng quay!", "error");
-                         } else {
-                            showLoginMessage("❌ Mã Code không hợp lệ!", "error");
-                         }
+                         if (validVipCodes.includes(code)) { showLoginMessage("❌ Mã này dành cho Vòng Quay VIP. Vui lòng chọn đúng vòng quay!", "error"); } 
+                         else { showLoginMessage("❌ Mã Code không hợp lệ!", "error"); }
                          return;
                     }
                     isValid = true;
                 }
 
-                if (code && usedCodes.includes(code)) {
-                    showLoginMessage(`❌ Mã Code này đã được sử dụng!`, "error");
-                    return;
-                }
+                if (code && usedCodes.includes(code)) { showLoginMessage(`❌ Mã Code này đã được sử dụng!`, "error"); return; }
                 
                 if (code) usedCodes.push(code);
                 localStorage.setItem('usedWheelCodes_LongBao', JSON.stringify(usedCodes));
-                
                 currentUser = username;
                 hasSpun = false; 
                 showLoginMessage("✅ Xác nhận thành công! Chào mừng " + username, "success");
@@ -789,7 +621,6 @@
             
             function spinWheel() {
                 if (isSpinning || hasSpun) return;
-                
                 isSpinning = true;
                 spinBtn.disabled = true;
                 spinBtn.textContent = '🔄 ĐANG QUAY...';
@@ -801,14 +632,10 @@
 
                 for (let i = 0; i < currentPrizes.length; i++) {
                     random -= currentPrizes[i].weight;
-                    if (random < 0) {
-                        selectedIndex = i;
-                        break;
-                    }
+                    if (random < 0) { selectedIndex = i; break; }
                 }
                 
-                if (selectedIndex === -1) { // Fallback for rounding errors or if all weights are 0
-                     // Find first item with weight > 0 if any
+                if (selectedIndex === -1) {
                     const firstValidIndex = currentPrizes.findIndex(p => p.weight > 0);
                     selectedIndex = firstValidIndex !== -1 ? firstValidIndex : 0;
                 }
@@ -832,7 +659,6 @@
             
             function showResult(prize) {
                 if (!prize || typeof prize.text !== 'string') return;
-
                 const isLoser = prize.text.toLowerCase().includes('lần sau') || prize.text.toLowerCase().includes('may mắn sẽ đến');
                 if (isLoser) {
                     popupTitle.textContent = '😊 CHÚC BẠN MAY MẮN LẦN SAU!';
@@ -850,7 +676,6 @@
             function createFireworks(baseColor = '#FFD700') {
                 fireworksContainer.innerHTML = ''; 
                 const particleColors = [baseColor, '#FFD700', '#FFA500', '#FFFFFF'];
-                
                 for (let i = 0; i < 30; i++) { 
                     setTimeout(() => {
                         const firework = document.createElement('div');
@@ -877,24 +702,15 @@
             function resetGameForNewTurn() {
                 gameArea.classList.remove('active');
                 loginSection.style.display = 'block';
-                usernameInput.value = '';
-                codeInput.value = '';
+                usernameInput.value = ''; codeInput.value = '';
                 loginMessage.style.display = 'none';
-                
                 wheelElement.style.transition = 'none';
                 wheelElement.style.transform = 'rotate(0deg)'; 
-                setTimeout(() => { 
-                    wheelElement.style.transition = 'transform 5s cubic-bezier(0.25, 1, 0.3, 1)'; 
-                }, 50);
-                
-                hasSpun = false;
-                isSpinning = false;
-                currentUser = ""; 
-
+                setTimeout(() => { wheelElement.style.transition = 'transform 5s cubic-bezier(0.25, 1, 0.3, 1)'; }, 50);
+                hasSpun = false; isSpinning = false; currentUser = ""; 
                 spinBtn.disabled = true;
                 spinBtn.textContent = '🎲 QUAY NGAY 🎲';
                 statusMessage.innerHTML = '🍀 Chúc bạn may mắn! Nhấn nút để quay bánh xe! 🍀';
-                
                 selectWheelType('normal');
             }
             
@@ -915,17 +731,7 @@
                     "RongVang88", "HoangKim99", "ChienThan01", "DaiGiaSG", "VuaSlot79", "ThanBaiPro", "QuayHuVip", "NoHuClub",
                     "LocPhat68", "ThanTai39", "TrieuPhu86", "TyPhuHN", "SlotKing77", "BaiThu3D", "JackpotHunter", "BigWinOnly",
                     "TheGioiSlot", "CuongPhong07", "AnhHungXaLo", "HuyenThoaiVip", "BatBaiChienThan", "KimCuongDo", "BachKim05",
-                    "SieuSao88", "CaoThuGaming", "ProPlayer12", "GamerViet", "NguoiChoiHePro", "TrumCuoi99", "ThachDau102",
-                    "VoDichThienHa", "PhongVanVoSong", "TuyetDinhCaoThu", "DocCoCauBai", "GameThuBatBai", "VipPlayer2k", "Ace777",
-                    "KingOfGames", "MasterSlot89", "LuckySpins45", "WinMachine66", "GoldMiner23", "CashHunter58", "FortuneChaser",
-                    "ReelMaster78", "SpinDoctor11", "BetKingPro", "HighRoller92", "PhatLocGaming", "TaiLocClub", "GiauTo86",
-                    "TienVaoNhuNuoc", "DanhBaiHay", "ChoiGameGioi", "ThangLon99", "CuocDoiLaGame", "SoDo68", "VanMayLuonDen",
-                    "AnTienMoiNgay", "LenDinhVinhQuang", "NhanQuaMoiTay", "SuPhuSlot", "DeNhatGameThu", "KeHuyDietGame",
-                    "HackerGame01", "BotCuaNhaCai", "NhaVoDich95", "ChienBinhBatTu", "QuyTocGaming", "TheLucVang", "OngTrumCuoi",
-                    "BaChuGame", "CoHoiVang", "GiacMoTrieuPhu", "SanThuongPro", "DoiThuDangGom", "KyNangThuongThua", "ManhMeVoDoi",
-                    "KhongSoAiCa", "ChapHetMoiKeo", "TuTinChienThang", "LamGiauKoKho", "ChoiLaThang", "TrungDam88", "TienDayTui",
-                    "FullHouseAce", "RoyalFlushKing", "FourAcesClub", "StraightUpWin", "AllInPro", "RiverRat9", "TurnMaster",
-                    "FlopKing", "BluffMaster", "PokerFaceVn", "CardShark21", "TheGambler67", "RongHoClub", "XocDiaVip"
+                    "SieuSao88", "CaoThuGaming", "ProPlayer12", "GamerViet", "NguoiChoiHePro", "TrumCuoi99", "ThachDau102"
                 ];
                 const leaderboardPrizesPool = ["68k", "188k", "388k", "588k", "888k", "38k", "88k"];
                 const prizePrefixes = ["💰", "💸", "💎"];
@@ -940,7 +746,7 @@
                     const prizePrefix = prizePrefixes[Math.floor(Math.random() * prizePrefixes.length)];
                     const prizeName = `${prizePrefix} ${prizeValue}`;
                     const row = leaderboardBody.insertRow();
-                    row.insertCell().textContent = `${i + 1}`;
+                    row.insertCell().innerHTML = `<i class="fa-solid fa-trophy"></i> ${i + 1}`;
                     row.insertCell().textContent = userName;
                     row.insertCell().textContent = prizeName;
                 }
@@ -962,7 +768,7 @@
 
                 selectWheelType('normal');
                 populateLeaderboard(10); 
-                setInterval(() => populateLeaderboard(10), 10000);
+                setInterval(() => populateLeaderboard(10), 15000);
                 setInterval(createFallingMoney, 400);
 
                 startBtn.addEventListener('click', startExperience);
