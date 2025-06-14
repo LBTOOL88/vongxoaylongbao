@@ -94,7 +94,7 @@
             transition: opacity 0.7s ease-out, visibility 0s linear 0.7s;
         }
         .intro-splash.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
-        .intro-logo { height: 70px; margin-bottom: 25px; /* Removed border-radius for potentially non-square logos */ }
+        .intro-logo { height: 70px; margin-bottom: 25px; }
         .intro-splash-title { font-size: 2.8em; color: var(--primary-color); text-shadow: 0 0 15px var(--primary-color); margin-bottom: 20px; font-weight: 700; line-height: 1.2; }
         .intro-splash-image { max-width: 50%; min-width: 280px; max-height: 35vh; border-radius: var(--border-radius); border: 3px solid var(--accent-color); box-shadow: var(--box-shadow-heavy); margin-bottom: 20px; object-fit: cover; }
         .intro-splash-subtitle { font-size: 1.5em; color: var(--text-color-light); margin-bottom: 30px; }
@@ -136,21 +136,134 @@
          #loginMessage.error { background: rgba(255, 0, 0, 0.1); border-color: #FF0000; color: #FF6B6B; }
          #loginMessage.success { background: rgba(0, 255, 0, 0.1); border-color: #00FF00; color: #20c997; }
 
-        .game-area { display: none; text-align: center; width: 100%; max-width: 600px; margin-bottom: 35px; background: rgba(0,0,0,0.6); padding: 20px; border-radius: var(--border-radius); box-shadow: var(--box-shadow-heavy); }
+        .game-area { display: none; text-align: center; width: 100%; max-width: 650px; margin-bottom: 35px; background: rgba(0,0,0,0.6); padding: 30px; border-radius: var(--border-radius); box-shadow: var(--box-shadow-heavy); }
         .game-area.active { display: block; }
-        .wheel-container { position: relative; width: 380px; height: 380px; margin: 0 auto 25px; filter: drop-shadow(0px 8px 12px rgba(0,0,0,0.3)); }
-        .wheel { width: 100%; height: 100%; border-radius: 50%; position: relative; overflow: hidden; border: 8px solid var(--secondary-color); box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.6), 0 0 35px rgba(0,0,0,0.3); transition: transform 4s cubic-bezier(0.23, 1, 0.32, 1); }
-        .wheel-section { position: absolute; width: 100%; height: 100%; top: 0; left: 0; font-weight: 600; box-shadow: inset 0 0 1px rgba(0,0,0,0.05); }
-        .wheel-section span { display: block; position: absolute; white-space: nowrap; text-align: center; font-weight: 500; color: white; text-shadow: 1px 1px 2px rgba(0,0,0,0.7); }
         
-        .pointer { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 20px solid transparent; border-right: 20px solid transparent; border-top: 30px solid var(--primary-color); z-index: 100; filter: drop-shadow(0 2px 3px rgba(0,0,0,0.4)); }
-        .center-circle { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60px; height: 60px; background: var(--secondary-color); border-radius: 50%; border: 4px solid var(--accent-color); z-index: 50; box-shadow: inset 0 0 12px rgba(0,0,0,0.5), 0 2px 5px rgba(0,0,0,0.2); }
+        .wheel-container { 
+            position: relative; 
+            width: 500px; 
+            height: 500px; 
+            margin: 0 auto 35px; 
+            filter: drop-shadow(0px 10px 15px rgba(0,0,0,0.5)); 
+        }
+        .wheel { 
+            width: 100%; 
+            height: 100%; 
+            border-radius: 50%; 
+            position: relative; 
+            overflow: hidden; 
+            border: 10px solid #1e2d3b;
+            box-shadow: 
+                inset 0 0 20px rgba(0,0,0,0.7), 
+                0 0 0 8px var(--primary-color), 
+                0 0 15px rgba(0,0,0,0.4);
+            transition: transform 5s cubic-bezier(0.25, 1, 0.3, 1);
+        }
+        .wheel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: radial-gradient(circle at top right, rgba(255,255,255,0.15), rgba(255,255,255,0) 60%);
+            z-index: 5;
+            pointer-events: none;
+        }
+        .wheel-section { 
+            position: absolute; 
+            width: 100%; 
+            height: 100%; 
+            top: 0; left: 0; 
+            font-weight: 600; 
+            box-shadow: inset 0 0 1px rgba(0,0,0,0.05); 
+        }
+        .wheel-section span { 
+            display: block; 
+            position: absolute; 
+            white-space: nowrap; 
+            text-align: center; 
+            font-weight: 500; 
+            color: white; 
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8); 
+        }
         
-        .spin-button { background: var(--gold-gradient); color: var(--text-color-dark); border: none; padding: 15px 45px; font-size: 1.2em; font-weight: bold; border-radius: 50px; cursor: pointer; transition: var(--transition-normal); box-shadow: var(--box-shadow-heavy); text-transform: uppercase; letter-spacing: 1px; margin-top: 20px; }
-        .spin-button:hover { transform: scale(1.03) translateY(-1px); box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5); }
-        .spin-button:disabled { background: #6c757d; color: #ccc; cursor: not-allowed; transform: none; opacity: 0.7; box-shadow: var(--box-shadow-light); }
-        #statusMessage.wheel-status { background: rgba(var(--primary-color-rgb, 255, 215, 0), 0.1); border: 1px solid var(--primary-color); color: var(--primary-color); }
+        .pointer { 
+            position: absolute; 
+            top: -15px; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            width: 56px; 
+            height: 42px; 
+            z-index: 100; 
+            filter: drop-shadow(0 4px 5px rgba(0,0,0,0.5));
+            -webkit-filter: drop-shadow(0 4px 5px rgba(0,0,0,0.5));
+            border-left: none;
+            border-right: none;
+            border-top: none;
+        }
+        .pointer .pointer-visual {
+             position: absolute;
+             top: 0; 
+             left: 0;
+             width: 100%;
+             height: 100%;
+             background: linear-gradient(to top, var(--primary-color), #FFFFFF);
+             clip-path: polygon(50% 100%, 100% 0, 0 0);
+             transform: rotate(180deg);
+        }
 
+        .center-circle { 
+            position: absolute; 
+            top: 50%; 
+            left: 50%; 
+            transform: translate(-50%, -50%); 
+            width: 80px; 
+            height: 80px; 
+            background: radial-gradient(circle, #8c96a0, #2c3e50);
+            border-radius: 50%; 
+            border: 5px solid var(--accent-color); 
+            z-index: 50; 
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.6), 0 3px 6px rgba(0,0,0,0.3); 
+        }
+        
+        .spin-button { 
+            background: var(--gold-gradient); 
+            color: var(--text-color-dark); 
+            border: none; 
+            padding: 18px 50px; 
+            font-size: 1.4em; 
+            font-weight: bold; 
+            border-radius: 50px; 
+            cursor: pointer; 
+            transition: var(--transition-normal); 
+            box-shadow: var(--box-shadow-heavy); 
+            text-transform: uppercase; 
+            letter-spacing: 1.5px; 
+            margin-top: 25px; 
+        }
+        .spin-button:hover { 
+            transform: scale(1.05) translateY(-2px); 
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.5); 
+        }
+        .spin-button:disabled { 
+            background: #6c757d; 
+            color: #ccc; 
+            cursor: not-allowed; 
+            transform: none; 
+            opacity: 0.7; 
+            box-shadow: var(--box-shadow-light); 
+        }
+        #statusMessage.wheel-status { 
+            background: rgba(var(--primary-color-rgb, 255, 215, 0), 0.1); 
+            border: 1px solid var(--primary-color); 
+            color: var(--primary-color); 
+            margin-top: 25px;
+            padding: 15px;
+            font-size: 1.1em;
+        }
+        
         .result-popup { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.9); backdrop-filter: blur(5px); display: none; align-items: center; justify-content: center; z-index: 1000; animation: fadeInPopup 0.4s ease-out; }
         @keyframes fadeInPopup { from { opacity: 0; } to { opacity: 1; } }
         .popup-content { background: var(--background-dark); padding: 30px; border-radius: 15px; border: 2px solid var(--primary-color); text-align: center; max-width: 420px; width: 90%; box-shadow: 0 0 40px rgba(255, 215, 0, 0.6); animation: popupScaleIn 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); position: relative; z-index: 1001; }
@@ -182,10 +295,20 @@
         .leaderboard-display tr:last-child td { border-bottom: none; }
 
         /* --- VIP WHEEL THEME --- */
-        .wheel.wheel-vip-theme { border-color: var(--vip-gold-color); box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.8), 0 0 40px var(--vip-gold-color); }
-        .pointer.pointer-vip-theme { border-top-color: var(--vip-gold-color); filter: drop-shadow(0 2px 4px #B8860B); }
-        .center-circle.center-circle-vip-theme { background: var(--vip-dark-bg); border-color: var(--vip-gold-color); box-shadow: inset 0 0 15px #000, 0 0 10px var(--vip-gold-color); }
-
+        .wheel.wheel-vip-theme { 
+            border-color: var(--vip-dark-bg); 
+            box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.8), 
+                        0 0 0 8px var(--vip-gold-color),
+                        0 0 40px var(--vip-gold-color);
+        }
+        .pointer.pointer-vip-theme > .pointer-visual {
+            background: linear-gradient(to top, var(--vip-gold-color), #FFFFFF);
+         }
+        .center-circle.center-circle-vip-theme { 
+            background: var(--vip-dark-bg); 
+            border-color: var(--vip-gold-color); 
+            box-shadow: inset 0 0 15px #000, 0 0 10px var(--vip-gold-color); 
+        }
 
         @media (max-width: 768px) {
             .page-header { justify-content: center; text-align: center; gap: 10px; }
@@ -204,10 +327,8 @@
             .promo-banner-subtitle { font-size: 1.2em; }
             .login-section { max-width: 90%; padding: 20px; }
             .login-title { font-size: 1.2em; }
-            .wheel-container { width: 300px; height: 300px; }
-            .pointer { border-left-width: 18px; border-right-width: 18px; border-top-width: 27px; top: -8px; }
-            .center-circle { width: 50px; height: 50px; }
-            .spin-button { font-size: 1.1em; padding: 14px 40px; }
+            .wheel-container { width: 400px; height: 400px; }
+            .spin-button { font-size: 1.2em; padding: 15px 40px; }
             .popup-content { max-width: 90%; padding: 25px; }
             .popup-title { font-size: 2em; }
             .popup-prize { font-size: 1.5em; }
@@ -235,7 +356,7 @@
             .login-title { font-size: 1.1em; }
             .input-group input { padding: 10px; font-size: 0.9em; }
             .validate-btn { font-size: 1em; padding: 10px; }
-            .wheel-container { width: calc(100vw - 40px); height: calc(100vw - 40px); max-width: 280px; max-height: 280px; }
+            .wheel-container { width: calc(100vw - 40px); height: calc(100vw - 40px); max-width: 320px; max-height: 320px; }
             .spin-button { font-size: 1em; padding: 12px 35px; }
             .popup-title { font-size: 1.8em; }
             .popup-prize { font-size: 1.3em; }
@@ -298,7 +419,9 @@
 
         <section class="game-area" id="gameArea">
             <div class="wheel-container">
-                <div class="pointer"></div>
+                <div class="pointer">
+                    <div class="pointer-visual"></div>
+                </div>
                 <div class="wheel" id="wheel"></div>
                 <div class="center-circle"></div>
             </div>
@@ -349,29 +472,28 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const prizes_normal = [ 
-                { text: "📱 IPHONE 16 PROMAX", color: "#FF0000", weight: 1 },   
-                { text: "💰 188K", color: "#FF6B6B", weight: 5 },      
-                { text: "💎 8888K", color: "#8E44AD", weight: 2 },  
-                { text: "💵 88K", color: "#E74C3C", weight: 10 }, 
-                { text: "💰 25 XU TOOL SLOT", color: "#F39C12", weight: 25 }, 
-                { text: "💸 588K", color: "#E67E22", weight: 3 },   
-                { text: "💴 78K", color: "#27AE60", weight: 12 },      
-                { text: "💳 100 XU TOOL VIP", color: "#2ECC71", weight: 5 }, 
-                { text: "💳 68K", color: "#A7D397", weight: 15 },
-                { text: "💎 888K", color: "#9B59B6", weight: 2 },
+                { text: "📱 IPHONE 16 PROMAX", color: "#FF0000", weight: 0 },   
+                { text: "💰 188K", color: "#FF6B6B", weight: 0 },      
+                { text: "💎 8888K", color: "#8E44AD", weight: 0 },  
+                { text: "💵 88K", color: "#E74C3C", weight: 0 }, 
+                { text: "💰 25 XU TOOL SLOT", color: "#F39C12", weight: 70 }, 
+                { text: "💸 588K", color: "#E67E22", weight: 0 },   
+                { text: "💴 78K", color: "#27AE60", weight: 0 },      
+                { text: "💳 100 XU TOOL VIP", color: "#2ECC71", weight: 10 }, 
+                { text: "💳 68K", color: "#A7D397", weight: 0 },
+                { text: "💎 888K", color: "#9B59B6", weight: 0 },
                 { text: "🎁 CHÚC BẠN MAY MẮN LẦN SAU", color: "#3498DB", weight: 20 }
             ];
 
             const prizes_vip = [
-                { text: "🌟 VUI VẺ CÙNG HOT TIKTOKER", color: "#FF69B4", weight: 5 }, 
-                { text: "💻 MACBOOK PRO M4", color: "#C0C0C0", weight: 3 },        
-                { text: "📱 IPHONE 16 PROMAX", color: "#B8860B", weight: 4 },     
-                { text: "✈️ DU LỊCH NƯỚC NGOÀI", color: "#87CEEB", weight: 5 }, 
-                { text: "💰 1 BITCOIN", color: "#FFD700", weight: 1 },             
-                { text: "✨ MAY MẮN SẼ ĐẾN VIP", color: "#483D8B", weight: 10 } 
+                { text: "🌟 VUI VẺ CÙNG HOT TIKTOKER", color: "#FF69B4", weight: 0 }, 
+                { text: "💻 MACBOOK PRO M4", color: "#C0C0C0", weight: 0 },        
+                { text: "📱 IPHONE 16 PROMAX", color: "#B8860B", weight: 0 },     
+                { text: "✈️ DU LỊCH NƯỚC NGOÀI", color: "#87CEEB", weight: 0 }, 
+                { text: "💰 1 BITCOIN", color: "#FFD700", weight: 0 },             
+                { text: "🎁 MAY MẮN SẼ ĐẾN LẦN SAU", color: "#483D8B", weight: 100 } 
             ];
             
-            // ... (rest of the script)
             let currentPrizes = prizes_normal;
             let activeWheelType = 'normal';
 
@@ -398,7 +520,6 @@
             let currentUser = "";
             let hasSpun = false; 
 
-            // Element Getters
             const getEl = (id) => document.getElementById(id);
             
             const introSplash = getEl('introSplash');
@@ -406,8 +527,6 @@
             const btnNormalWheel = getEl('btnNormalWheel');
             const btnVipWheel = getEl('btnVipWheel');
             const wheelElement = getEl('wheel');
-            const pointerElement = document.querySelector('.pointer');
-            const centerCircleElement = document.querySelector('.center-circle');
             const loginSection = getEl('loginSection');
             const gameArea = getEl('gameArea');
             const usernameInput = getEl('username');
@@ -433,10 +552,13 @@
             }
             
             function selectWheelType(type) {
+                const pointer = document.querySelector('.pointer');
+                const centerCircleElement = document.querySelector('.center-circle');
+                
                 btnNormalWheel.classList.remove('active');
                 btnVipWheel.classList.remove('active');
                 wheelElement.classList.remove('wheel-vip-theme');
-                pointerElement.classList.remove('pointer-vip-theme');
+                pointer.classList.remove('pointer-vip-theme');
                 centerCircleElement.classList.remove('center-circle-vip-theme');
 
                 if (type === 'vip') {
@@ -444,17 +566,19 @@
                     btnVipWheel.classList.add('active');
                     activeWheelType = 'vip';
                     wheelElement.classList.add('wheel-vip-theme');
-                    pointerElement.classList.add('pointer-vip-theme');
+                    pointer.classList.add('pointer-vip-theme');
                     centerCircleElement.classList.add('center-circle-vip-theme');
                 } else { 
                     currentPrizes = prizes_normal;
                     btnNormalWheel.classList.add('active');
                     activeWheelType = 'normal';
                 }
-                createWheel();
+                
+                if (gameArea.classList.contains('active')) {
+                    createWheel();
+                }
                 
                 hasSpun = false; 
-                spinBtn.disabled = true; // Disable spin button until validated
                 if (gameArea.classList.contains('active')) {
                    spinBtn.disabled = false;
                 }
@@ -490,18 +614,22 @@
                     const span = document.createElement('span');
                     span.textContent = prize.text;
                     
-                    let fontSize = '11px'; 
-                    if (numPrizes <= 8) { 
-                        if (prize.text.length <= 10) fontSize = '11px'; else fontSize = '9px';
-                    } else { 
-                        if (prize.text.length <= 8) fontSize = '10px'; else fontSize = '8px';
+                    let fontSize = '15px'; 
+                    let textRadius = 38; 
+                    
+                    if (numPrizes > 8) {
+                        fontSize = '14px';
+                        textRadius = 37;
                     }
+                    if (prize.text.length > 15) {
+                        fontSize = '12px';
+                    }
+
                     span.style.fontSize = fontSize;
                     
                     const textAngleDeg = i * sectionAngle + (sectionAngle / 2) + angleOffsetForPointer;
                     const textAngleRad = textAngleDeg * Math.PI / 180;
                     
-                    const textRadius = numPrizes > 10 ? 32 : 34; 
                     const textX = 50 + textRadius * Math.cos(textAngleRad);
                     const textY = 50 + textRadius * Math.sin(textAngleRad);
                     
@@ -609,12 +737,16 @@
                     }
                 }
                 
-                if (selectedIndex === -1) selectedIndex = Math.floor(Math.random() * currentPrizes.length); 
+                if (selectedIndex === -1) { // Fallback for rounding errors or if all weights are 0
+                     // Find first item with weight > 0 if any
+                    const firstValidIndex = currentPrizes.findIndex(p => p.weight > 0);
+                    selectedIndex = firstValidIndex !== -1 ? firstValidIndex : 0;
+                }
                 
                 const selectedPrize = currentPrizes[selectedIndex];
                 const sectionAngle = 360 / currentPrizes.length;
                 const targetRotationOffset = -(selectedIndex * sectionAngle + sectionAngle / 2);
-                const randomSpins = Math.floor(Math.random() * 4 + 7);
+                const randomSpins = Math.floor(Math.random() * 5 + 8);
                 const totalRotation = randomSpins * 360 + targetRotationOffset;
                 
                 wheelElement.style.transform = `rotate(${totalRotation}deg)`;
@@ -625,7 +757,7 @@
                     spinBtn.textContent = '✅ ĐÃ QUAY';
                     statusMessage.textContent = '🎯 Bạn đã sử dụng lượt quay này.';
                     hasSpun = true;
-                }, 4100); 
+                }, 5100); 
             }
             
             function showResult(prize) {
@@ -681,7 +813,9 @@
                 
                 wheelElement.style.transition = 'none';
                 wheelElement.style.transform = 'rotate(0deg)'; 
-                setTimeout(() => { wheelElement.style.transition = 'transform 4s cubic-bezier(0.23, 1, 0.32, 1)'; }, 50);
+                setTimeout(() => { 
+                    wheelElement.style.transition = 'transform 5s cubic-bezier(0.25, 1, 0.3, 1)'; 
+                }, 50);
                 
                 hasSpun = false;
                 isSpinning = false;
@@ -691,7 +825,6 @@
                 spinBtn.textContent = '🎲 QUAY NGAY 🎲';
                 statusMessage.innerHTML = '🍀 Chúc bạn may mắn! Nhấn nút để quay bánh xe! 🍀';
                 
-                // Re-select default wheel without creating it yet as gameArea is hidden
                 selectWheelType('normal');
             }
             
@@ -707,7 +840,6 @@
                 fallingMoneyContainer.appendChild(particle);
             }
 
-            // --- LEADERBOARD FUNCTIONS ---
             function populateLeaderboard(numberOfEntries = 5) {
                 const virtualUsernames = ["CaoThủ_007", "ĐạiGia_SG", "ThầnBài_VIP", "TriệuPhú_88", "VuaQuayHũ", "LongThần_LB", "PhượngHoàng_Win", "KimTiền_Vàng", "MayMắn_999", "SiêuSao_Slot"];
                 const leaderboardPrizesPool = ["💎 8888K", "💎 888K", "💸 588K", "💰 188K"];
@@ -725,7 +857,6 @@
                 }
             }
             
-            // --- INITIALIZATION ---
             function init() {
                 try {
                     const storedCodes = localStorage.getItem('usedWheelCodes_LongBao');
@@ -744,7 +875,6 @@
                 populateLeaderboard(5); 
                 setInterval(createFallingMoney, 400);
 
-                // Event Listeners
                 startBtn.addEventListener('click', startExperience);
                 btnNormalWheel.addEventListener('click', () => selectWheelType('normal'));
                 btnVipWheel.addEventListener('click', () => selectWheelType('vip'));
@@ -752,7 +882,6 @@
                 spinBtn.addEventListener('click', spinWheel);
                 closePopupBtn.addEventListener('click', closePopup);
                 
-                // Initially disable spin button
                 spinBtn.disabled = true;
             }
 
