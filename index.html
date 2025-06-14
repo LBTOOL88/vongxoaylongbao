@@ -17,6 +17,8 @@
             --background-dark: #1a1a2e;
             --background-gradient: linear-gradient(45deg, #1a1a2e, #16213e, #0f3460);
             --gold-gradient: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            --green-gradient: linear-gradient(45deg, #28a745, #218838);
+            --blue-gradient: linear-gradient(45deg, #007bff, #00c6ff);
             --promo-gradient: linear-gradient(60deg, var(--accent-color), var(--primary-color), #FFC300);
             --support-gradient: linear-gradient(60deg, #007bff, #00c6ff, #007bff);
             --money-green: #609966;
@@ -93,16 +95,58 @@
             justify-content: center; text-align: center; padding: 20px;
             opacity: 1; visibility: visible; pointer-events: auto;
             transition: opacity 0.7s ease-out, visibility 0s linear 0.7s;
+            overflow-y: auto;
         }
         .intro-splash.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
         .intro-logo { height: 70px; margin-bottom: 25px; }
         .intro-splash-title { font-size: 2.8em; color: var(--primary-color); text-shadow: 0 0 15px var(--primary-color); margin-bottom: 20px; font-weight: 700; line-height: 1.2; }
         .intro-splash-image { max-width: 50%; min-width: 280px; max-height: 35vh; border-radius: var(--border-radius); border: 3px solid var(--accent-color); box-shadow: var(--box-shadow-heavy); margin-bottom: 20px; object-fit: cover; }
-        .intro-splash-subtitle { font-size: 1.5em; color: var(--text-color-light); margin-bottom: 30px; }
+        .intro-splash-subtitle { font-size: 1.5em; color: var(--text-color-light); margin-bottom: 25px; }
         .intro-splash-subtitle strong { color: var(--accent-color); font-weight: 700; }
-        .intro-splash-button { background: var(--gold-gradient); color: var(--text-color-dark); border: none; padding: 16px 40px; font-size: 1.3em; font-weight: bold; border-radius: 50px; cursor: pointer; transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; box-shadow: 0 5px 15px rgba(0,0,0,0.3); text-transform: uppercase; letter-spacing: 1px; }
-        .intro-splash-button:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5); }
         
+        .intro-splash-button { background: var(--gold-gradient); color: var(--text-color-dark); border: none; padding: 16px 30px; font-size: 1.2em; font-weight: bold; border-radius: 50px; cursor: pointer; transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; box-shadow: 0 5px 15px rgba(0,0,0,0.3); text-transform: uppercase; letter-spacing: 1px; }
+        .intro-splash-button:hover { transform: translateY(-2px) scale(1.03); }
+        
+        #startExperienceBtn {
+            background: var(--green-gradient);
+            color: var(--text-color-light);
+            width: 100%;
+            max-width: 450px;
+        }
+        #startExperienceBtn:hover {
+             box-shadow: 0 8px 25px rgba(40, 167, 69, 0.5);
+        }
+
+        .intro-link-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            width: 100%;
+            max-width: 450px;
+            margin-top: 15px;
+        }
+
+        .intro-splash-button.external-link {
+            text-decoration: none;
+            display: inline-block;
+            flex-grow: 1;
+        }
+        .intro-splash-button.register {
+            background: var(--gold-gradient);
+        }
+        .intro-splash-button.register:hover {
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5);
+        }
+
+        .intro-splash-button.secondary {
+            background: var(--blue-gradient);
+            color: var(--text-color-light);
+        }
+        .intro-splash-button.secondary:hover {
+            box-shadow: 0 8px 25px rgba(0, 123, 255, 0.5);
+        }
+
+
         .page-header { width: 100%; max-width: 1100px; display: flex; justify-content: center; align-items: center; padding: 10px 0; margin-bottom: 25px; flex-wrap: wrap; position: relative; z-index: 10; }
         .logo-container { display: flex; align-items: center; gap: 15px; }
         .logo { height: 50px; }
@@ -130,7 +174,7 @@
         .input-group label { display: block; margin-bottom: 7px; color: var(--primary-color); font-weight: 500; font-size: 1em; }
         .input-group input { width: 100%; padding: 12px; border: 1px solid var(--accent-color); border-radius: 8px; background-color: rgba(0, 0, 0, 0.4); color: var(--text-color-light); font-size: 1em; transition: var(--transition-normal); }
         .input-group input:focus { outline: none; border-color: var(--primary-color); box-shadow: 0 0 8px rgba(255, 215, 0, 0.5); }
-        .validate-btn { width: 100%; padding: 12px; background: linear-gradient(45deg, #28a745, #218838); color: var(--text-color-light); border: none; border-radius: 50px; font-size: 1.1em; font-weight: bold; cursor: pointer; transition: var(--transition-normal); box-shadow: var(--box-shadow-light); }
+        .validate-btn { width: 100%; padding: 12px; background: var(--green-gradient); color: var(--text-color-light); border: none; border-radius: 50px; font-size: 1.1em; font-weight: bold; cursor: pointer; transition: var(--transition-normal); box-shadow: var(--box-shadow-light); }
         .validate-btn:hover { background: linear-gradient(45deg, #218838, #1e7e34); transform: translateY(-1px); box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4); }
         
         .status-message, #loginMessage { margin-top: 15px; padding: 12px; border-radius: 8px; text-align: center; font-weight: 500; font-size: 0.95em; border-width: 1px; border-style: solid; }
@@ -323,7 +367,7 @@
             .intro-splash-title { font-size: 2.2em; }
             .intro-splash-image { max-width: 70%; max-height: 30vh; }
             .intro-splash-subtitle { font-size: 1.3em; }
-            .intro-splash-button { font-size: 1.1em; padding: 14px 35px; }
+            .intro-splash-button { font-size: 1.1em; padding: 14px 25px; }
             .casino-title { font-size: 2.2em; }
             .casino-subtitle { font-size: 1.1em; }
             .special-prize-title { font-size: 2em; }
@@ -347,11 +391,20 @@
             body { padding: 10px 5px; }
             .logo { height: 40px; }
             .header-site-title { font-size: 1.5em; }
-            .intro-logo { height: 60px; }
-            .intro-splash-title { font-size: 1.8em; }
-            .intro-splash-image { max-width: 80%; max-height: 25vh; min-width: unset; }
-            .intro-splash-subtitle { font-size: 1.1em; }
-            .intro-splash-button { font-size: 1em; padding: 12px 30px; }
+            .intro-logo { height: 60px; margin-bottom: 15px; }
+            .intro-splash-title { font-size: 1.8em; margin-bottom: 15px; }
+            .intro-splash-image { max-width: 80%; max-height: 25vh; min-width: unset; margin-bottom: 15px; }
+            .intro-splash-subtitle { font-size: 1.1em; margin-bottom: 20px;}
+            .intro-splash-button { font-size: 1em; padding: 12px 20px; }
+            .intro-link-container {
+                flex-direction: column;
+                align-items: stretch;
+                max-width: 80%;
+                gap: 10px;
+            }
+            #startExperienceBtn {
+                max-width: 80%;
+            }
             .casino-title { font-size: 1.8em; }
             .casino-subtitle { font-size: 1em; }
             .special-prize-title { font-size: 1.8em; }
@@ -379,7 +432,13 @@
         <h1 class="intro-splash-title">VÒNG XOAY ĐỈNH CAO<br>RINH NGAY IPHONE!</h1>
         <img src="https://i.ibb.co/8nYhZ6NQ/iphone-16-pro-max-thong-so-1-25f84e2fedb948bf8c7021806eeba7fb.webp" alt="Giải Đặc Biệt IPHONE 16 PROMAX" class="intro-splash-image">
         <p class="intro-splash-subtitle">Giải Thưởng Siêu Hot: <strong>IPHONE 16 PROMAX 1TB</strong> và Ngàn Quà Giá Trị!</p>
-        <button class="intro-splash-button" id="startExperienceBtn">Tham Gia Ngay!</button>
+        
+        <button class="intro-splash-button" id="startExperienceBtn">THAM GIA VÒNG XOAY NGAY</button>
+
+        <div class="intro-link-container">
+            <a href="http://WWW.F168.CODES" target="_blank" rel="noopener noreferrer" class="intro-splash-button external-link register">ĐĂNG KÍ TÀI KHOẢN NGAY</a>
+            <a href="http://WWW.F168TOP.SITE" target="_blank" rel="noopener noreferrer" class="intro-splash-button external-link secondary">LINK PHỤ</a>
+        </div>
     </div>
     
     <header class="page-header">
