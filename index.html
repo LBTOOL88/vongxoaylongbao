@@ -108,7 +108,7 @@
         .header-site-title { font-size: 2.2em; font-weight: 700; color: var(--primary-color); text-shadow: 1px 1px 3px rgba(0,0,0,0.5), 0 0 15px var(--primary-color); background: linear-gradient(45deg, #FFD700, #FFA500, #FF6B6B, #FFD700); background-size: 300% 300%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: shimmerText 3s ease-in-out infinite; }
         
         .main-content { width: 100%; display: flex; flex-direction: column; align-items: center; position: relative; z-index: 5; }
-        .wheel-selection-area { margin-bottom: 20px; display: flex; gap: 15px; position: relative; z-index: 6; }
+        .wheel-selection-area { display: flex; gap: 15px; position: relative; z-index: 6; }
         .wheel-select-btn { padding: 10px 20px; font-size: 1em; font-weight: bold; border-radius: var(--border-radius); border: 2px solid var(--primary-color); background-color: transparent; color: var(--primary-color); cursor: pointer; transition: var(--transition-normal); }
         .wheel-select-btn:hover, .wheel-select-btn.active { background-color: var(--primary-color); color: var(--text-color-dark); box-shadow: 0 0 15px var(--primary-color); }
 
@@ -262,11 +262,6 @@
     </header>
 
     <div class="main-content">
-        <div class="wheel-selection-area">
-            <button id="btnNormalWheel" class="wheel-select-btn active">🎡 Vòng Quay Thường</button>
-            <button id="btnVipWheel" class="wheel-select-btn">🌟 Vòng Quay VIP</button>
-        </div>
-
         <section class="casino-header">
             <h2 class="casino-title">🎰 QUAY LÀ TRÚNG - THỬ VẬN MAY NGAY! 🎰</h2>
             <p class="casino-subtitle">✨ Giải Thưởng Hấp Dẫn Đang Chờ Đón Bạn ✨</p>
@@ -291,6 +286,12 @@
                 <label for="code">🎟️ Mã code (Nếu có):</label>
                 <input type="text" id="code" placeholder="Nhập mã code hợp lệ">
             </div>
+
+            <div class="wheel-selection-area" style="justify-content: center; margin-bottom: 25px; margin-top: 10px;">
+                <button id="btnNormalWheel" class="wheel-select-btn active">🎡 Vòng Quay Thường</button>
+                <button id="btnVipWheel" class="wheel-select-btn">🌟 Vòng Quay VIP</button>
+            </div>
+            
             <button class="validate-btn" id="validateBtn">🚀 XÁC NHẬN THAM GIA</button>
             <div id="loginMessage" class="status-message" style="display: none;"></div>
         </section>
@@ -453,9 +454,10 @@
                 createWheel();
                 
                 hasSpun = false; 
-                spinBtn.disabled = false;
-                spinBtn.textContent = '🎲 QUAY NGAY 🎲';
-                statusMessage.textContent = '🍀 Chúc bạn may mắn! Nhấn nút để quay bánh xe! 🍀';
+                spinBtn.disabled = true; // Disable spin button until validated
+                if (gameArea.classList.contains('active')) {
+                   spinBtn.disabled = false;
+                }
             }
 
             function createWheel() {
@@ -575,6 +577,9 @@
                     loginSection.style.display = 'none';
                     gameArea.classList.add('active');
                     createWheel(); 
+                    spinBtn.disabled = false;
+                    spinBtn.textContent = '🎲 QUAY NGAY 🎲';
+                    statusMessage.innerHTML = '🍀 Chúc bạn may mắn! Nhấn nút để quay bánh xe! 🍀';
                 }, 1500);
             }
             
@@ -682,11 +687,12 @@
                 isSpinning = false;
                 currentUser = ""; 
 
-                spinBtn.disabled = false;
+                spinBtn.disabled = true;
                 spinBtn.textContent = '🎲 QUAY NGAY 🎲';
                 statusMessage.innerHTML = '🍀 Chúc bạn may mắn! Nhấn nút để quay bánh xe! 🍀';
                 
-                createWheel();
+                // Re-select default wheel without creating it yet as gameArea is hidden
+                selectWheelType('normal');
             }
             
             function createFallingMoney() {
@@ -745,6 +751,9 @@
                 validateBtn.addEventListener('click', validateCode);
                 spinBtn.addEventListener('click', spinWheel);
                 closePopupBtn.addEventListener('click', closePopup);
+                
+                // Initially disable spin button
+                spinBtn.disabled = true;
             }
 
             init();
